@@ -6,6 +6,16 @@
    re-applies after React (DC) re-renders. */
 (function () {
   var DICT = {
+    "Send us your information": "Envíenos su información",
+    "Select an area": "Seleccione un área",
+    "Not sure / any study": "No estoy seguro / cualquier estudio",
+    "Please fill in every field marked above and tick the box.": "Complete todos los campos de arriba y marque la casilla.",
+    "Send my information →": "Enviar mi información →",
+    "Clicking send opens your email app with your details filled in. Just press Send there.": "Al hacer clic en enviar se abrirá su aplicación de correo con sus datos ya escritos. Solo presione Enviar allí.",
+    "No email app? Call us at": "¿No tiene aplicación de correo? Llámenos al",
+    "Almost done: press Send in your email app.": "Casi listo: presione Enviar en su aplicación de correo.",
+    "Your email app should have opened with your details filled in. Press Send and a coordinator will reach out.": "Su aplicación de correo debería haberse abierto con sus datos. Presione Enviar y un coordinador se comunicará con usted.",
+    "If nothing opened, please call": "Si no se abrió nada, llame al",
 
     /* ---- Migration pages (tools/i18n_extra.py) ---- */
     "FAQ": "Preguntas frecuentes",

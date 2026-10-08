@@ -17,6 +17,7 @@
 <link rel="icon" type="image/png" sizes="32x32" href="../assets/img/favicon-32.png">
 <link rel="apple-touch-icon" href="../assets/img/favicon-180.png">
 <link rel="stylesheet" href="../assets/css/site.css">
+<script src="../assets/js/contact.js" defer></script>
 </head>
 <body>
 <a class="skip-link" href="#main">Skip to content</a>
@@ -75,16 +76,33 @@
     largest hospital in Palm Beach County, minutes from Palm Beach International Airport and all major highways.</p>
     <iframe class="map" src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d1936.8902918757742!2d-80.0936157!3d26.6093169!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x88d8d8719fa74f25%3A0xdb0401542aef1652!2sAltus%20Clinical%20Research!5e1!3m2!1sen!2sus!4v1731074305924!5m2!1sen!2sus" title="Map to Altus Clinical Research" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
   </div>
-  <div><div class="card" style="padding:36px">
+  <div><div class="card" style="padding:32px">
   <span class="eyebrow">Get pre-screened</span>
-  <h2 class="h2" style="font-size:32px">Call our team</h2>
-  <p style="font-size:16px">The fastest way to find out if you qualify is a short call with a coordinator.
-  Pre-screening is always free and there's no obligation to continue.</p>
-  <div class="btn-row"><a class="btn" href="tel:+15616410404">Call 561-641-0404</a>
-  <a class="btn btn--light" href="https://www.google.com/maps/place/Altus+Clinical+Research/@26.607926,-80.0902012,17z/data=!4m6!3m5!1s0x88d8d8719fa74f25:0xdb0401542aef1652" target="_blank" rel="noopener">Get directions</a></div>
+  <h2 class="h2" style="font-size:32px">Send us your information</h2>
+  <form id="inquiry" class="inq" novalidate data-to="info@altusresearch.com">
+    <div class="inq__row">
+      <label>First name<input name="first" autocomplete="given-name" required></label>
+      <label>Last name<input name="last" autocomplete="family-name" required></label>
+    </div>
+    <div class="inq__row">
+      <label>Phone<input name="phone" type="tel" autocomplete="tel" required></label>
+      <label>Email<input name="email" type="email" autocomplete="email" required></label>
+    </div>
+    <label>Area of interest<select name="area" required><option value="">Select an area</option><option>Women&#x27;s Studies</option><option>Urology</option><option>Dermatology</option><option>Vaccines</option><option>Internal Medicine</option><option>Rheumatology</option><option>Aesthetic Medicine</option><option>Pediatrics</option><option>Weight Loss</option><option>Not sure / any study</option></select></label>
+    <label>Message (optional)<textarea name="message" rows="4"></textarea></label>
+    <label class="inq__check"><input type="checkbox" name="consent" required><span>We'll never share your information. By submitting, you agree to be contacted about studies.</span></label>
+    <p class="inq__err" role="alert" hidden>Please fill in every field marked above and tick the box.</p>
+    <button class="btn" type="submit">Send my information →</button>
+    <p class="inq__note">Clicking send opens your email app with your details filled in. Just press Send there.
+    No email app? Call us at <a href="tel:+15616410404">561-641-0404</a>.</p>
+  </form>
+  <div class="inq__done" hidden>
+    <h3 class="h3">Almost done: press Send in your email app.</h3>
+    <p>Your email app should have opened with your details filled in. Press Send and a coordinator will reach out.
+    If nothing opened, please call <a href="tel:+15616410404">561-641-0404</a>.</p>
+  </div>
 </div>
-    <p class="muted" style="font-size:13px;line-height:1.55;margin-top:14px">We'll never share your information. By submitting, you agree to be contacted about studies.
-    <a href="../wp-content/uploads/2020/02/notice-of-privacy-practice-1.pdf" style="color:#14796b">Notice of Privacy Practices</a>.</p>
+    <p class="muted" style="font-size:13px;line-height:1.55;margin-top:14px"><a href="../wp-content/uploads/2020/02/notice-of-privacy-practice-1.pdf" style="color:#14796b">Notice of Privacy Practices</a></p>
   </div>
 </div></section>
 </main>

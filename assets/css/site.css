@@ -241,3 +241,20 @@ a[data-hv="star"]:hover{border-color:#f7b500 !important}
 .home-areas{grid-template-columns:repeat(auto-fit,minmax(128px,1fr)) !important}
 .home-areas>a{padding:20px 16px !important}
 .home-areas>a>span{font-size:15px !important;overflow-wrap:anywhere}
+
+/* Inquiry form */
+.inq{display:flex;flex-direction:column;gap:16px;margin-top:20px}
+.inq__row{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.inq label{display:flex;flex-direction:column;gap:6px;font-size:14px;font-weight:700;color:#15294d}
+.inq input,.inq select,.inq textarea{font:inherit;font-weight:400;font-size:16px;color:#15294d;background:#f7fafa;border:1px solid #c5d6d8;border-radius:12px;padding:12px 14px;width:100%}
+.inq input:focus,.inq select:focus,.inq textarea:focus{outline:3px solid #9fd3ea;outline-offset:1px;border-color:#3a5b96;background:#fff}
+.inq [aria-invalid="true"]{border-color:#b3261e;background:#fff5f4}
+.inq .inq__check{flex-direction:row;align-items:flex-start;gap:10px;font-weight:400;font-size:14px;line-height:1.5;color:#42544f}
+.inq .inq__check input{width:20px;height:20px;flex-shrink:0;margin-top:1px;padding:0}
+.inq__err{color:#b3261e;font-size:14px;font-weight:600}
+.inq .btn{align-self:flex-start}
+.inq__note{font-size:13px;line-height:1.55;color:#5c6b68}
+.inq__note a,.inq__done a{color:#14796b;font-weight:700}
+.inq__done{margin-top:18px;background:#eef7f1;border:1px solid #cfe3da;border-radius:16px;padding:20px}
+.inq__done p{font-size:15px;line-height:1.6;color:#42544f;margin-top:8px}
+@media (max-width:600px){.inq__row{grid-template-columns:1fr}}

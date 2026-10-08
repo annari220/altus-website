@@ -438,13 +438,32 @@ def build_contact():
         form = (f'<div class="card" style="padding:12px"><iframe class="form-frame" src="{esc(C.FORM_EMBED_URL)}" '
                 f'title="Volunteer inquiry form" loading="lazy"></iframe></div>')
     else:
-        form = f"""<div class="card" style="padding:36px">
+        areas = "".join(f'<option>{esc(a[2])}</option>' for a in C.AREAS)
+        form = f"""<div class="card" style="padding:32px">
   <span class="eyebrow">Get pre-screened</span>
-  <h2 class="h2" style="font-size:32px">Call our team</h2>
-  <p style="font-size:16px">The fastest way to find out if you qualify is a short call with a coordinator.
-  Pre-screening is always free and there's no obligation to continue.</p>
-  <div class="btn-row"><a class="btn" href="tel:{C.PHONE_TEL}">Call {C.PHONE}</a>
-  <a class="btn btn--light" href="{C.MAPS_URL}" target="_blank" rel="noopener">Get directions</a></div>
+  <h2 class="h2" style="font-size:32px">Send us your information</h2>
+  <form id="inquiry" class="inq" novalidate data-to="{C.INQUIRY_EMAIL}">
+    <div class="inq__row">
+      <label>First name<input name="first" autocomplete="given-name" required></label>
+      <label>Last name<input name="last" autocomplete="family-name" required></label>
+    </div>
+    <div class="inq__row">
+      <label>Phone<input name="phone" type="tel" autocomplete="tel" required></label>
+      <label>Email<input name="email" type="email" autocomplete="email" required></label>
+    </div>
+    <label>Area of interest<select name="area" required><option value="">Select an area</option>{areas}<option>Weight Loss</option><option>Not sure / any study</option></select></label>
+    <label>Message (optional)<textarea name="message" rows="4"></textarea></label>
+    <label class="inq__check"><input type="checkbox" name="consent" required><span>We'll never share your information. By submitting, you agree to be contacted about studies.</span></label>
+    <p class="inq__err" role="alert" hidden>Please fill in every field marked above and tick the box.</p>
+    <button class="btn" type="submit">Send my information →</button>
+    <p class="inq__note">Clicking send opens your email app with your details filled in. Just press Send there.
+    No email app? Call us at <a href="tel:{C.PHONE_TEL}">{C.PHONE}</a>.</p>
+  </form>
+  <div class="inq__done" hidden>
+    <h3 class="h3">Almost done: press Send in your email app.</h3>
+    <p>Your email app should have opened with your details filled in. Press Send and a coordinator will reach out.
+    If nothing opened, please call <a href="tel:{C.PHONE_TEL}">{C.PHONE}</a>.</p>
+  </div>
 </div>"""
     body = hero("Contact", "Enroll today.",
                 "Tell us a little about yourself and our team will reach out about current and upcoming studies.",
@@ -463,13 +482,12 @@ def build_contact():
     <iframe class="map" src="{C.MAP_EMBED}" title="Map to Altus Clinical Research" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
   </div>
   <div>{form}
-    <p class="muted" style="font-size:13px;line-height:1.55;margin-top:14px">We'll never share your information. By submitting, you agree to be contacted about studies.
-    <a href="{{{{ROOT}}}}{C.NPP_PDF}" style="color:#14796b">Notice of Privacy Practices</a>.</p>
+    <p class="muted" style="font-size:13px;line-height:1.55;margin-top:14px"><a href="{{{{ROOT}}}}{C.NPP_PDF}" style="color:#14796b">Notice of Privacy Practices</a></p>
   </div>
 </div></section>"""
     page("/contact-us/", "Contact Us | Altus Clinical Research, Lake Worth, FL",
          f"Contact Altus Clinical Research at {C.ADDRESS_1}, {C.ADDRESS_2}. Call {C.PHONE} to get pre-screened for a study.",
-         body)
+         body, extra='<script src="{{ROOT}}assets/js/contact.js" defer></script>\n')
 
 
 FAQ = [
