@@ -21,7 +21,7 @@ NPP_PDF = "wp-content/uploads/2020/02/notice-of-privacy-practice-1.pdf"
 # While empty, the contact page shows call / visit options instead of a form.
 FORM_EMBED_URL = ""
 # Where the built-in inquiry form sends (used while FORM_EMBED_URL is empty).
-INQUIRY_EMAIL = "info@altusresearch.com"
+INQUIRY_EMAIL = "yperez@altusresearch.com"
 
 # ---------------------------------------------------------------- icons
 ICON = {
