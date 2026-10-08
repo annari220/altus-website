@@ -1,0 +1,80 @@
+/* Shared styles for altusresearch.com (built from the Claude Design "Altus - Bold" pages). */
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:#eef3f4;font-family:Arial,Helvetica,sans-serif;color:#15294d;-webkit-font-smoothing:antialiased}
+img{max-width:100%}
+::selection{background:#cfe3da}
+a:focus-visible,button:focus-visible{outline:3px solid #3a5b96;outline-offset:3px;border-radius:6px}
+.skip-link{position:absolute;left:-9999px;top:8px;background:#15294d;color:#fff;padding:10px 16px;border-radius:8px;z-index:100;text-decoration:none}
+.skip-link:focus{left:12px}
+
+/* Cards / image hover (from the design) */
+.rf-card{transition:transform .3s cubic-bezier(.2,.7,.3,1),box-shadow .3s ease}
+.rf-card:hover{transform:translateY(-5px);box-shadow:0 24px 50px -28px rgba(21,41,77,.5)}
+.rf-img{transition:transform .6s cubic-bezier(.2,.7,.3,1)}
+.rf-imgwrap{overflow:hidden}
+.rf-imgwrap:hover .rf-img{transform:scale(1.05)}
+@media (prefers-reduced-motion:reduce){.rf-card,.rf-img{transition:none}.rf-card:hover{transform:none}.rf-imgwrap:hover .rf-img{transform:none}html{scroll-behavior:auto}}
+
+/* Header */
+.site-header{position:sticky;top:0;z-index:50;background:rgba(238,243,244,.92);-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);border-bottom:1px solid #d9e5e7}
+.site-header__bar{max-width:1200px;margin:0 auto;padding:12px 24px;display:flex;align-items:center;justify-content:space-between;gap:20px}
+.site-header__logo{display:flex;align-items:center;text-decoration:none;flex-shrink:0}
+.site-header__logo img{height:74px;width:auto;display:block}
+.site-nav--desktop{display:flex;align-items:center;gap:24px}
+.site-nav--desktop>a{text-decoration:none;color:#3a4a47;font-size:15px;font-weight:500}
+.site-nav--desktop>a:hover{color:#15294d}
+.site-nav .btn-enroll{background:#3a5b96;color:#fff;font-weight:600;padding:11px 22px;border-radius:999px}
+.site-nav .btn-enroll:hover{background:#2d487a;color:#fff}
+.lang-toggle{display:flex;align-items:center;border:1px solid #c5d6d8;border-radius:999px;overflow:hidden;flex-shrink:0}
+.lang-toggle button{border:none;cursor:pointer;font-family:inherit;font-size:13px;font-weight:700;padding:7px 12px;line-height:1;letter-spacing:.04em;background:transparent;color:#3a4a47}
+.lang-toggle button.is-active{background:#3a5b96;color:#fff}
+.menu-toggle{display:none;background:#fff;border:1px solid #d9e5e7;border-radius:12px;width:46px;height:46px;flex-direction:column;align-items:center;justify-content:center;gap:4px;cursor:pointer;flex-shrink:0}
+.menu-toggle span{width:20px;height:2px;background:#15294d;border-radius:2px;display:block}
+.site-nav--mobile{display:flex;flex-direction:column;padding:8px 24px 18px;border-top:1px solid #d9e5e7;background:rgba(238,243,244,.98)}
+.site-nav--mobile[hidden]{display:none}
+.site-nav--mobile>a{text-decoration:none;color:#15294d;font-size:17px;font-weight:600;padding:13px 0;border-bottom:1px solid #dde8ea}
+.site-nav--mobile>a.btn-enroll{font-size:16px;padding:14px;text-align:center;margin-top:14px;border-bottom:none}
+.site-nav--mobile .lang-toggle{align-self:flex-start;margin-top:16px}
+@media (max-width:860px){
+  .site-nav--desktop{display:none}
+  .menu-toggle{display:flex}
+  .site-header__logo img{height:58px}
+}
+@media (min-width:861px){.site-nav--mobile{display:none !important}}
+
+/* Footer */
+.site-footer{background:#15294d;color:#cfe0da}
+.site-footer__grid{max-width:1200px;margin:0 auto;padding:56px 24px 32px;display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:32px}
+.site-footer__brand{min-width:220px}
+.site-footer__brand img{height:48px;width:auto;display:block;margin-bottom:16px}
+.site-footer__brand p{font-size:14px;line-height:1.6;color:#9fb6b1;max-width:280px}
+.site-footer__h{font-size:13px;letter-spacing:.1em;text-transform:uppercase;color:#9fd3ea;font-weight:700;margin-bottom:14px}
+.site-footer__col{display:flex;flex-direction:column;gap:10px;font-size:14px;color:#cfe0da}
+.site-footer__col a{text-decoration:none;color:#cfe0da}
+.site-footer__col a:hover{color:#fff;text-decoration:underline}
+.site-footer__legal{max-width:1200px;margin:0 auto;padding:18px 24px;border-top:1px solid rgba(255,255,255,.1);font-size:13px;color:#8fa6a0}
+
+/* Mobile tightening for the design's large inline type */
+@media (max-width:600px){
+  h1{font-size:36px !important}
+  .stack-sm-pad{padding:32px 22px !important}
+}
+
+/* Hover states (the design's style-hover attributes) */
+a[data-hv="btn"]:hover{background:#2d487a !important}
+a[data-hv="outline"]:hover{border-color:#3a5b96 !important}
+a[data-hv="star"]:hover{border-color:#f7b500 !important}
+
+/* Home hero: same gradient as the design, WebP with JPG fallback */
+.home-hero{background-image:linear-gradient(100deg,rgba(238,243,244,.94) 0%,rgba(238,243,244,.78) 34%,rgba(238,243,244,.3) 58%,rgba(238,243,244,0) 88%),url("../img/hero-volunteers.jpg");
+  background-image:linear-gradient(100deg,rgba(238,243,244,.94) 0%,rgba(238,243,244,.78) 34%,rgba(238,243,244,.3) 58%,rgba(238,243,244,0) 88%),image-set(url("../img/hero-volunteers.webp") type("image/webp"),url("../img/hero-volunteers.jpg") type("image/jpeg"))}
+@media (max-width:700px){
+  .home-hero{min-height:0 !important;background-image:linear-gradient(180deg,rgba(238,243,244,.95) 0%,rgba(238,243,244,.88) 100%),url("../img/hero-volunteers.jpg");
+    background-image:linear-gradient(180deg,rgba(238,243,244,.95) 0%,rgba(238,243,244,.88) 100%),image-set(url("../img/hero-volunteers.webp") type("image/webp"),url("../img/hero-volunteers.jpg") type("image/jpeg"))}
+  .home-hero>div{padding:48px 20px !important}
+  main section [style*="padding:56px;text-align:center"]{padding:36px 22px !important}
+  main section [style*="font-size:38px;font-weight:700;color:#15294d;letter-spacing:0;margin-top:12px"],
+  main section h2[style*="font-size:40px"]{font-size:30px !important}
+  main p[style*="font-size:30px"]{font-size:23px !important}
+}

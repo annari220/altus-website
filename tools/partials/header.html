@@ -1,0 +1,34 @@
+<header class="site-header">
+  <div class="site-header__bar">
+    <a href="{{ROOT}}" class="site-header__logo" aria-label="Altus Clinical Research home">
+      <picture><source srcset="{{ROOT}}assets/img/altus-logo.webp" type="image/webp"><img src="{{ROOT}}assets/img/altus-logo.png" alt="Altus Clinical Research" width="145" height="74"></picture>
+    </a>
+    <nav class="site-nav site-nav--desktop" aria-label="Main">
+      <a href="{{ROOT}}expertise/">Expertise</a>
+      <a href="{{ROOT}}volunteers/">Volunteers</a>
+      <a href="{{ROOT}}sponsors/">Sponsors</a>
+      <a href="{{ROOT}}studies/">Studies</a>
+      <a href="{{ROOT}}team/">Team</a>
+      <a href="{{ROOT}}contact/" class="btn-enroll">Enroll today</a>
+      <div class="lang-toggle" role="group" aria-label="Language">
+        <button type="button" data-lang="en" class="is-active">EN</button>
+        <button type="button" data-lang="es">ES</button>
+      </div>
+    </nav>
+    <button type="button" class="menu-toggle" aria-label="Menu" aria-expanded="false" aria-controls="mobile-nav">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+  <nav id="mobile-nav" class="site-nav site-nav--mobile" aria-label="Main" hidden>
+    <a href="{{ROOT}}expertise/">Expertise</a>
+    <a href="{{ROOT}}volunteers/">Volunteers</a>
+    <a href="{{ROOT}}sponsors/">Sponsors</a>
+    <a href="{{ROOT}}studies/">Studies</a>
+    <a href="{{ROOT}}team/">Team</a>
+    <a href="{{ROOT}}contact/" class="btn-enroll">Enroll today</a>
+    <div class="lang-toggle" role="group" aria-label="Language">
+      <button type="button" data-lang="en" class="is-active">EN</button>
+      <button type="button" data-lang="es">ES</button>
+    </div>
+  </nav>
+</header>

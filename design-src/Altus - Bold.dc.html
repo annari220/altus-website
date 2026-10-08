@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html><head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Altus Clinical Research</title>
+
+
+<script>
+(function(){
+  var map = { 'SiteHeader.dc.html': 'siteHeader', 'SiteFooter.dc.html': 'siteFooter' };
+  var orig = window.fetch.bind(window);
+  window.fetch = function(input, init){
+    var url = typeof input === 'string' ? input : (input && input.url) || '';
+    var file = decodeURIComponent(url.split('?')[0].split('/').pop() || '');
+    var id = map[file];
+    if (id && window.__resources && window.__resources[id]) return orig(window.__resources[id], init);
+    return orig(input, init);
+  };
+})();
+</script>
+<script src="bc512d4d-61af-479f-a6ed-1c70eb484359"></script>
+</head>
+<body>
+
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<style>
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{background:#eef3f4}
+  ::selection{background:#cfe3da}
+  .rf-card{transition:transform .3s cubic-bezier(.2,.7,.3,1), box-shadow .3s ease}
+  .rf-card:hover{transform:translateY(-5px);box-shadow:0 24px 50px -28px rgba(21,41,77,.5)}
+  .rf-img{transition:transform .6s cubic-bezier(.2,.7,.3,1)}
+  .rf-imgwrap{overflow:hidden}
+  .rf-imgwrap:hover .rf-img{transform:scale(1.05)}
+</style>
+<script src="456fc3be-e6dd-41e8-a9ef-33d2eafee0d4"></script>
+</helmet>
+<div style="font-family:Arial,Helvetica,sans-serif;color:#15294d;background:#eef3f4;-webkit-font-smoothing:antialiased;overflow-x:hidden">
+
+  <dc-import name="SiteHeader" hint-size="100%,100px"></dc-import>
+
+  <section data-screen-label="Home / Hero" style="position:relative;min-height:560px;display:flex;align-items:center;background-image:linear-gradient(100deg,rgba(238,243,244,.94) 0%,rgba(238,243,244,.78) 34%,rgba(238,243,244,.3) 58%,rgba(238,243,244,0) 88%),url(&quot;adc49731-77e1-49b7-b0cd-de64023f718b&quot;);background-size:cover;background-position:center right">
+    <div style="max-width:1200px;margin:0 auto;padding:72px 24px;width:100%">
+      <div style="max-width:600px">
+        <div style="display:inline-flex;align-items:center;gap:9px;background:#fff;border:1px solid #d9e5e7;color:#14796b;font-size:13px;font-weight:600;padding:7px 16px;border-radius:999px;margin-bottom:26px;box-shadow:0 6px 18px -10px rgba(21,41,77,.4)">
+          <span style="width:7px;height:7px;border-radius:50%;background:#14796b;display:inline-block"></span>
+          Lake Worth Beach, FL · Now enrolling
+        </div>
+        <h1 style="font-family:'Times New Roman',Times,serif;font-size:46px;line-height:1.12;font-weight:500;letter-spacing:0;color:#15294d;text-wrap:balance">Advancing <span style="font-weight:500;letter-spacing:0">diversity through clinical trials, <em style="font-style:italic;font-weight:500;color:#14796b">one community at a time.</em></span></h1>
+        <p style="font-size:19px;line-height:1.6;color:#42544f;margin-top:22px;max-width:500px">A South Florida research site combining expert teams with trusted community physicians to bring safe, effective treatments to the people who need them.</p>
+        <div style="display:flex;gap:14px;margin-top:32px;flex-wrap:wrap">
+          <a href="Volunteers.dc.html" style="text-decoration:none;background:#3a5b96;color:#fff;font-size:16px;font-weight:600;padding:15px 30px;border-radius:999px;box-shadow:0 12px 28px -14px rgba(58,91,150,.9)" style-hover="background:#2d487a">Volunteer for a study →</a>
+          <a href="Sponsors.dc.html" style="text-decoration:none;background:rgba(255,255,255,.7);color:#15294d;font-size:13px;font-weight:600;padding:9px 17px;border-radius:999px;border:1px solid #d8d3c6;align-self:center" style-hover="border-color:#3a5b96">For sponsors</a>
+        </div>
+        <div style="display:flex;align-items:center;gap:13px;margin-top:34px">
+          <span style="color:#f7b500;font-size:16px;letter-spacing:1px">★★★★★</span>
+          <span style="font-size:14px;color:#42544f"><strong style="color:#15294d">4.7/5</strong> across 160+ reviews</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section style="background:#fff;border-top:1px solid #e4edee;border-bottom:1px solid #e4edee">
+    <div style="max-width:1200px;margin:0 auto;padding:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr))">
+      <div style="padding:30px 32px;border-right:1px solid #e4edee"><div style="font-family:Arial,Helvetica,sans-serif;font-size:38px;font-weight:700;color:#15294d;letter-spacing:0">4.7★</div><p style="font-size:14px;color:#5c6b68;margin-top:4px">160+ reviews</p></div>
+      <div style="padding:30px 32px;border-right:1px solid #e4edee"><div style="font-family:Arial,Helvetica,sans-serif;font-size:38px;font-weight:700;color:#15294d;letter-spacing:0">7</div><p style="font-size:14px;color:#5c6b68;margin-top:4px">therapeutic areas</p></div>
+      <div style="padding:30px 32px;border-right:1px solid #e4edee"><div style="font-family:Arial,Helvetica,sans-serif;font-size:38px;font-weight:700;color:#15294d;letter-spacing:0">II–IV</div><p style="font-size:14px;color:#5c6b68;margin-top:4px">phases of experience</p></div>
+      <div style="padding:30px 32px"><div style="font-family:Arial,Helvetica,sans-serif;font-size:38px;font-weight:700;color:#15294d;letter-spacing:0">3</div><p style="font-size:14px;color:#5c6b68;margin-top:4px">studies enrolling now</p></div>
+    </div>
+  </section>
+
+  <section style="max-width:1080px;margin:0 auto;padding:84px 24px;text-align:center">
+    <span style="font-size:13px;letter-spacing:.16em;text-transform:uppercase;color:#14796b;font-weight:700">Our mission</span>
+    <p style="font-family:Arial,Helvetica,sans-serif;font-size:30px;line-height:1.4;font-weight:500;color:#15294d;margin-top:18px;text-wrap:balance">We integrate a highly trained research team with the trusted private practices of our partner investigators, driving medical innovation while keeping our community at the center of everything we do.</p>
+  </section>
+
+  <section style="max-width:920px;margin:0 auto;padding:0 24px 56px">
+    <div style="display:flex;flex-wrap:wrap;gap:20px;align-items:stretch">
+      <div class="rf-card" style="flex:1.7 1 340px;background:#fff;border-radius:20px;padding:32px;border:1px solid #dde8ea">
+        <div style="width:40px;height:40px;border-radius:11px;background:#d9ecd6;display:flex;align-items:center;justify-content:center;margin-bottom:16px"><svg sc-camel-view-box="0 0 24 24" width="20" height="20" fill="none" stroke="#14796b" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"></path><path d="M2 21c0-3 1.85-5.36 5.08-6"></path></svg></div>
+        <h2 style="font-family:'Times New Roman',Times,serif;font-size:24px;font-weight:700;color:#15294d;letter-spacing:0">For volunteers</h2>
+        <p style="font-size:14.5px;line-height:1.6;color:#42544f;margin-top:10px">Our volunteers play a critical role in advancing treatment for many conditions. We guide you through every step in plain language.</p>
+        <ul style="list-style:none;margin:18px 0 0;display:flex;flex-direction:column;gap:10px">
+          <li style="display:flex;gap:10px;font-size:14px;color:#3a4a47"><span style="color:#14796b;font-weight:700">✓</span> Free pre-screening with our care team</li>
+          <li style="display:flex;gap:10px;font-size:14px;color:#3a4a47"><span style="color:#14796b;font-weight:700">✓</span> Access to studies you won't find elsewhere</li>
+          <li style="display:flex;gap:10px;font-size:14px;color:#3a4a47"><span style="color:#14796b;font-weight:700">✓</span> Compassionate care close to home</li>
+        </ul>
+        <a href="Volunteers.dc.html" style="text-decoration:none;display:inline-block;margin-top:22px;color:#14796b;font-weight:600;font-size:14px;border-bottom:2px solid #bfdcd2;padding-bottom:2px">See if you qualify →</a>
+      </div>
+      <div class="rf-card" style="flex:1 1 240px;background:#15294d;border-radius:20px;padding:24px;color:#dfeae6" data-comment-anchor="0419479dab-div">
+        <div style="width:40px;height:40px;border-radius:11px;background:rgba(255,255,255,.1);display:flex;align-items:center;justify-content:center;margin-bottom:16px"><svg sc-camel-view-box="0 0 24 24" width="20" height="20" fill="none" stroke="#9fd3ea" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 3h4l-.7 3.2L16 16l-4 5-4-5 2.7-9.8L10 3Z"></path><path d="M9.3 6.2h5.4"></path></svg></div>
+        <h2 style="font-family:'Times New Roman',Times,serif;font-size:24px;font-weight:700;color:#fff;letter-spacing:0">For sponsors</h2>
+        <p style="font-size:14.5px;line-height:1.6;color:#aecabf;margin-top:10px">We provide the pharmaceutical industry the highest quality of service while upholding the strictest ethical standards and protocol adherence.</p>
+        <ul style="list-style:none;margin:18px 0 0;display:flex;flex-direction:column;gap:10px">
+          <li style="display:flex;gap:10px;font-size:14px;color:#cfe0da"><span style="color:#9fd3ea;font-weight:700">✓</span> Integrated with established private practices</li>
+          <li style="display:flex;gap:10px;font-size:14px;color:#cfe0da"><span style="color:#9fd3ea;font-weight:700">✓</span> Subject safety &amp; strict protocol adherence</li>
+          <li style="display:flex;gap:10px;font-size:14px;color:#cfe0da"><span style="color:#9fd3ea;font-weight:700">✓</span> Experienced Phase II–IV research team</li>
+        </ul>
+        <a href="Sponsors.dc.html" style="text-decoration:none;display:inline-block;margin-top:22px;color:#9fd3ea;font-weight:600;font-size:14px;border-bottom:2px solid rgba(127,208,191,.4);padding-bottom:2px">Explore our facilities →</a>
+      </div>
+    </div>
+  </section>
+
+  <section style="max-width:1200px;margin:0 auto;padding:40px 24px 72px">
+    <div style="text-align:center;max-width:620px;margin:0 auto 46px">
+      <span style="font-size:13px;letter-spacing:.16em;text-transform:uppercase;color:#14796b;font-weight:700">How it works</span>
+      <h2 style="font-family:'Times New Roman',Times,serif;font-size:38px;font-weight:700;color:#15294d;letter-spacing:0;margin-top:12px;text-wrap:balance">Joining a study is simple</h2>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:28px">
+      <div><div style="font-family:Arial,Helvetica,sans-serif;font-size:46px;font-weight:700;color:#c9d6d0">01</div><h3 style="font-family:'Times New Roman',Times,serif;font-size:18px;font-weight:700;color:#15294d;margin-top:6px">Reach out</h3><p style="font-size:14px;line-height:1.6;color:#5c6b68;margin-top:7px">Tell us your area of interest by form or phone.</p></div>
+      <div><div style="font-family:Arial,Helvetica,sans-serif;font-size:46px;font-weight:700;color:#c9d6d0">02</div><h3 style="font-family:'Times New Roman',Times,serif;font-size:18px;font-weight:700;color:#15294d;margin-top:6px">Pre-screen</h3><p style="font-size:14px;line-height:1.6;color:#5c6b68;margin-top:7px">A coordinator reviews eligibility at no cost.</p></div>
+      <div><div style="font-family:Arial,Helvetica,sans-serif;font-size:46px;font-weight:700;color:#c9d6d0">03</div><h3 style="font-family:'Times New Roman',Times,serif;font-size:18px;font-weight:700;color:#15294d;margin-top:6px">Participate</h3><p style="font-size:14px;line-height:1.6;color:#5c6b68;margin-top:7px">Join the study with our team at every visit.</p></div>
+      <div><div style="font-family:Arial,Helvetica,sans-serif;font-size:46px;font-weight:700;color:#c9d6d0">04</div><h3 style="font-family:'Times New Roman',Times,serif;font-size:18px;font-weight:700;color:#15294d;margin-top:6px">Make an impact</h3><p style="font-size:14px;line-height:1.6;color:#5c6b68;margin-top:7px">Help advance treatments for your community.</p></div>
+    </div>
+  </section>
+
+  <section style="background:#e4edee;border-top:1px solid #d9e5e7;border-bottom:1px solid #d9e5e7">
+    <div style="max-width:1200px;margin:0 auto;padding:80px 24px">
+      <div style="display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:20px;margin-bottom:40px">
+        <div>
+          <span style="font-size:13px;letter-spacing:.16em;text-transform:uppercase;color:#14796b;font-weight:700">Areas of expertise</span>
+          <h2 style="font-family:'Times New Roman',Times,serif;font-size:38px;font-weight:700;color:#15294d;letter-spacing:0;margin-top:12px;max-width:560px;text-wrap:balance">Research across the conditions that matter most</h2>
+        </div>
+        <a href="Expertise.dc.html" style="text-decoration:none;color:#14796b;font-weight:600;font-size:15px;white-space:nowrap">All areas →</a>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:16px">
+        <a href="Expertise.dc.html" class="rf-card" style="text-decoration:none;background:#fff;border:1px solid #d9e5e7;border-radius:18px;padding:24px"><div style="width:36px;height:36px;border-radius:10px;background:#d9ecd6;display:flex;align-items:center;justify-content:center;color:#14796b;font-weight:700;margin-bottom:14px">♀</div><span style="font-size:16px;font-weight:700;color:#15294d">Women's Studies</span></a>
+        <a href="Expertise.dc.html" class="rf-card" style="text-decoration:none;background:#fff;border:1px solid #d9e5e7;border-radius:18px;padding:24px"><div style="width:36px;height:36px;border-radius:10px;background:#d9ecd6;display:flex;align-items:center;justify-content:center;color:#14796b;font-weight:700;margin-bottom:14px"><sc-if value="{{ isKidney }}" hint-placeholder-val="{{ true }}"><svg sc-camel-view-box="0 0 24 24" width="18" height="18" fill="none" stroke="#14796b" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 3C4.7 3 3 5.9 3 9.5S5 16 8 16c1.6 0 2.3-1 2.6-2 .4-1.4 1.4-2 1.4-4S11 3 8 3Z"></path><path d="M16 21c3.3 0 5-2.9 5-6.5S19 8 16 8c-1.6 0-2.3 1-2.6 2-.4 1.4-1.4 2-1.4 4s1 7 4 7Z"></path></svg></sc-if><sc-if value="{{ isDroplet }}" hint-placeholder-val="{{ true }}"><svg sc-camel-view-box="0 0 24 24" width="18" height="18" fill="none" stroke="#14796b" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2.5c3.5 4.3 6 7.6 6 11a6 6 0 0 1-12 0c0-3.4 2.5-6.7 6-11Z"></path></svg></sc-if><sc-if value="{{ isBladder }}" hint-placeholder-val="{{ true }}"><svg sc-camel-view-box="0 0 24 24" width="18" height="18" fill="none" stroke="#14796b" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v4"></path><path d="M9 5h6"></path><path d="M6 11c0-1.7 2.7-3 6-3s6 1.3 6 3c0 4-1.5 9-6 9s-6-5-6-9Z"></path></svg></sc-if></div><span style="font-size:16px;font-weight:700;color:#15294d">Urology</span></a>
+        <a href="Expertise.dc.html" class="rf-card" style="text-decoration:none;background:#fff;border:1px solid #d9e5e7;border-radius:18px;padding:24px"><div style="width:36px;height:36px;border-radius:10px;background:#d9ecd6;display:flex;align-items:center;justify-content:center;color:#14796b;font-weight:700;margin-bottom:14px"><svg sc-camel-view-box="0 0 24 24" width="18" height="18" fill="none" stroke="#14796b" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14"></path><path d="M5 12h14"></path></svg></div><span style="font-size:16px;font-weight:700;color:#15294d">Dermatology</span></a>
+        <a href="Expertise.dc.html" class="rf-card" style="text-decoration:none;background:#fff;border:1px solid #d9e5e7;border-radius:18px;padding:24px"><div style="width:36px;height:36px;border-radius:10px;background:#d9ecd6;display:flex;align-items:center;justify-content:center;color:#14796b;font-weight:700;margin-bottom:14px"><svg sc-camel-view-box="0 0 24 24" width="18" height="18" fill="none" stroke="#14796b" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m18 2 4 4"></path><path d="m17 7 3-3"></path><path d="M19 9 8.7 19.3c-1 1-2 1-3 0l-1-1c-1-1-1-2 0-3L15 5"></path><path d="m9 11 4 4"></path><path d="m5 19-3 3"></path><path d="m14 4 6 6"></path></svg></div><span style="font-size:16px;font-weight:700;color:#15294d">Vaccines</span></a>
+        <a href="Expertise.dc.html" class="rf-card" style="text-decoration:none;background:#fff;border:1px solid #d9e5e7;border-radius:18px;padding:24px"><div style="width:36px;height:36px;border-radius:10px;background:#d9ecd6;display:flex;align-items:center;justify-content:center;color:#14796b;font-weight:700;margin-bottom:14px">♥</div><span style="font-size:16px;font-weight:700;color:#15294d">Internal Medicine</span></a>
+        <a href="Expertise.dc.html" class="rf-card" style="text-decoration:none;background:#fff;border:1px solid #d9e5e7;border-radius:18px;padding:24px"><div style="width:36px;height:36px;border-radius:10px;background:#d9ecd6;display:flex;align-items:center;justify-content:center;color:#14796b;font-weight:700;margin-bottom:14px"><svg sc-camel-view-box="0 0 24 24" width="18" height="18" fill="none" stroke="#14796b" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 10c.7-.7 1.69 0 2.5 0a2.5 2.5 0 1 0 0-5 .5.5 0 0 1-.5-.5 2.5 2.5 0 1 0-5 0c0 .81.7 1.8 0 2.5l-7 7c-.7.7-1.69 0-2.5 0a2.5 2.5 0 0 0 0 5c.28 0 .5.22.5.5a2.5 2.5 0 1 0 5 0c0-.81-.7-1.8 0-2.5Z"></path></svg></div><span style="font-size:16px;font-weight:700;color:#15294d">Rheumatology</span></a>
+        <a href="Expertise.dc.html" class="rf-card" style="text-decoration:none;background:#fff;border:1px solid #d9e5e7;border-radius:18px;padding:24px"><div style="width:36px;height:36px;border-radius:10px;background:#d9ecd6;display:flex;align-items:center;justify-content:center;color:#14796b;font-weight:700;margin-bottom:14px"><svg sc-camel-view-box="0 0 24 24" width="18" height="18" fill="none" stroke="#14796b" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19.6 2.2l.5 1.5 1.5.5-1.5.5-.5 1.5-.5-1.5L17.6 4.2l1.5-.5z" fill="#14796b" stroke="none"></path><path d="M18 11c-1.5 0-2.5.5-3 2"></path><path d="M4 6a2 2 0 0 0-2 2v4a5 5 0 0 0 5 5 8 8 0 0 1 5 2 8 8 0 0 1 5-2 5 5 0 0 0 5-5V8a2 2 0 0 0-2-2h-3a8 8 0 0 0-5 2 8 8 0 0 0-5-2z"></path><path d="M6 11c1.5 0 2.5.5 3 2"></path></svg></div><span style="font-size:16px;font-weight:700;color:#15294d">Aesthetic Medicine</span></a>
+      </div>
+    </div>
+  </section>
+
+  <section style="max-width:1200px;margin:0 auto;padding:80px 24px 56px">
+    <div style="display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:32px;flex-wrap:wrap;gap:16px">
+      <div>
+        <span style="font-size:13px;letter-spacing:.16em;text-transform:uppercase;color:#14796b;font-weight:700">Open enrollment</span>
+        <h2 style="font-family:'Times New Roman',Times,serif;font-size:34px;font-weight:700;color:#15294d;letter-spacing:0;margin-top:10px">Currently enrolling studies</h2>
+      </div>
+      <a href="Studies.dc.html" style="text-decoration:none;color:#14796b;font-weight:600;font-size:15px;white-space:nowrap">View all studies →</a>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:24px">
+      <a href="Studies.dc.html" class="rf-card" style="text-decoration:none;background:#fff;border:1px solid #dde8ea;border-radius:22px;overflow:hidden;display:block">
+        <div class="rf-imgwrap" style="height:190px"><img class="rf-img" src="b7a0060d-8e92-4cea-b06d-efd0f28925d2" alt="Birth Control Study" style="width:100%;height:100%;object-fit:cover;object-position:50% 32%;display:block"></div>
+        <div style="padding:26px">
+          <span style="display:inline-block;font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:#14796b;font-weight:700;background:#d9ecd6;padding:4px 10px;border-radius:999px">Enrolling · Women's</span>
+          <h3 style="font-family:'Times New Roman',Times,serif;font-size:22px;font-weight:700;color:#15294d;margin-top:12px">Birth Control: Contraceptive Patch</h3>
+          <p style="font-size:14px;line-height:1.6;color:#5c6b68;margin-top:8px">Exploring estrogen-free options? A patch trial may be right for you.</p>
+          <span style="display:inline-block;margin-top:14px;color:#14796b;font-weight:600;font-size:14px">Learn more →</span>
+        </div>
+      </a>
+      <a href="Studies.dc.html" class="rf-card" style="text-decoration:none;background:#fff;border:1px solid #dde8ea;border-radius:22px;overflow:hidden;display:block">
+        <div class="rf-imgwrap" style="height:190px"><img class="rf-img" src="ef9adb31-1b65-4d21-acb9-37339a963405" alt="Urinary Incontinence Study" style="width:100%;height:100%;object-fit:cover;object-position:50% 42%;display:block"></div>
+        <div style="padding:26px">
+          <span style="display:inline-block;font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:#14796b;font-weight:700;background:#d9ecd6;padding:4px 10px;border-radius:999px">Enrolling · Urology</span>
+          <h3 style="font-family:'Times New Roman',Times,serif;font-size:22px;font-weight:700;color:#15294d;margin-top:12px">Urinary Incontinence</h3>
+          <p style="font-size:14px;line-height:1.6;color:#5c6b68;margin-top:8px">You may be able to join this study. Additional criteria apply.</p>
+          <span style="display:inline-block;margin-top:14px;color:#14796b;font-weight:600;font-size:14px">Learn more →</span>
+        </div>
+      </a>
+      <a href="Studies.dc.html" class="rf-card" style="text-decoration:none;background:#fff;border:1px solid #dde8ea;border-radius:22px;overflow:hidden;display:block">
+        <div class="rf-imgwrap" style="height:190px"><img class="rf-img" src="067976bf-0ce7-48b2-bc1a-a2083a02b11d" alt="Hot Flash Study" style="width:100%;height:100%;object-fit:cover;object-position:40% 38%;display:block"></div>
+        <div style="padding:26px">
+          <span style="display:inline-block;font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:#15294d;font-weight:700;background:#dcebf2;padding:4px 10px;border-radius:999px">Coming soon · Women's</span>
+          <h3 style="font-family:'Times New Roman',Times,serif;font-size:22px;font-weight:700;color:#15294d;margin-top:12px">Hot Flash Study</h3>
+          <p style="font-size:14px;line-height:1.6;color:#5c6b68;margin-top:8px">Healthy participants may qualify. Additional criteria apply.</p>
+          <span style="display:inline-block;margin-top:14px;color:#14796b;font-weight:600;font-size:14px">Learn more →</span>
+        </div>
+      </a>
+    </div>
+  </section>
+
+  <section style="background:#15294d;color:#fff">
+    <div style="max-width:1200px;margin:0 auto;padding:80px 24px">
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:48px;align-items:center">
+        <div>
+          <div style="font-family:Arial,Helvetica,sans-serif;font-size:84px;font-weight:700;color:#9fd3ea;line-height:.9">4.7</div>
+          <div style="color:#f7b500;font-size:20px;letter-spacing:2px;margin-top:6px">★★★★★</div>
+          <p style="font-size:16px;color:#aecabf;margin-top:14px;max-width:240px">Rated 4.7 out of 5 across 160+ reviews.</p>
+          <div style="display:flex;flex-wrap:wrap;gap:10px;margin-top:22px">
+            <a href="https://www.google.com/maps/place/Altus+Research,+4671+S+Congress+Ave+%23+100B,+Lake+Worth,+FL+33461/@26.607926,-80.0902012,13z" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:7px;text-decoration:none;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.16);color:#eaf3ef;font-size:13px;font-weight:600;padding:8px 14px;border-radius:999px" style-hover="border-color:#f7b500">Google <span style="color:#f7b500">★</span></a>
+            <a href="https://www.facebook.com/AltusResearch/reviews" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:7px;text-decoration:none;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.16);color:#eaf3ef;font-size:13px;font-weight:600;padding:8px 14px;border-radius:999px" style-hover="border-color:#f7b500">Facebook <span style="color:#f7b500">★</span></a>
+          </div>
+        </div>
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:18px">
+          <div style="background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);border-radius:18px;padding:28px">
+            <div style="color:#f7b500;font-size:14px;letter-spacing:1px;margin-bottom:12px">★★★★★</div>
+            <p style="font-family:Arial,Helvetica,sans-serif;font-style:italic;font-size:17px;line-height:1.55;color:#eaf3ef">"The team explained everything clearly and made me feel completely at ease throughout the trial."</p>
+            <div style="font-size:13px;color:#9fd3ea;font-weight:600;margin-top:16px">Study Volunteer</div>
+          </div>
+          <div style="background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);border-radius:18px;padding:28px">
+            <div style="color:#f7b500;font-size:14px;letter-spacing:1px;margin-bottom:12px">★★★★★</div>
+            <p style="font-family:Arial,Helvetica,sans-serif;font-style:italic;font-size:17px;line-height:1.55;color:#eaf3ef">"Professional, caring, and right in our community. My time and safety always mattered to them."</p>
+            <div style="font-size:13px;color:#9fd3ea;font-weight:600;margin-top:16px">Study Volunteer</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section style="max-width:1100px;margin:0 auto;padding:80px 24px">
+    <div style="background:#fff;border:1px solid #dde8ea;border-radius:28px;padding:56px;text-align:center;box-shadow:0 30px 70px -42px rgba(21,41,77,.45)">
+      <span style="font-size:13px;letter-spacing:.16em;text-transform:uppercase;color:#14796b;font-weight:700">Get started</span>
+      <h2 style="font-family:'Times New Roman',Times,serif;font-size:40px;font-weight:700;color:#15294d;letter-spacing:0;margin-top:12px;text-wrap:balance">Ready to take the next step?</h2>
+      <p style="font-size:17px;line-height:1.6;color:#42544f;margin-top:14px;max-width:520px;margin-left:auto;margin-right:auto">Tell us a little about yourself and our team will reach out about current and upcoming studies.</p>
+      <div style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-top:30px">
+        <a href="Contact.dc.html" style="text-decoration:none;background:#3a5b96;color:#fff;font-size:16px;font-weight:600;padding:15px 30px;border-radius:999px" style-hover="background:#2d487a">Enroll today →</a>
+        <a href="tel:561-641-0404" style="text-decoration:none;background:#eef3f4;color:#15294d;font-size:16px;font-weight:600;padding:15px 30px;border-radius:999px;border:1px solid #dde8ea;white-space:nowrap">Call 561-641-0404</a>
+      </div>
+    </div>
+  </section>
+
+  <dc-import name="SiteFooter" hint-size="100%,260px"></dc-import>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script="" data-props="{&quot;urologyIcon&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;kidney&quot;,&quot;droplet&quot;,&quot;bladder&quot;],&quot;default&quot;:&quot;kidney&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Icons&quot;}}">
+class Component extends DCLogic {
+  renderVals() {
+    const icon = this.props.urologyIcon ?? 'kidney';
+    return {
+      isKidney: icon === 'kidney',
+      isDroplet: icon === 'droplet',
+      isBladder: icon === 'bladder',
+    };
+  }
+}
+</script>
+
+
+</body></html>

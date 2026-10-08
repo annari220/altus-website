@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<header style="position:sticky;top:0;z-index:50;background:rgba(238,243,244,.92);backdrop-filter:blur(14px);border-bottom:1px solid #d9e5e7;font-family:Arial,Helvetica,sans-serif">
+  <div style="max-width:1200px;margin:0 auto;padding:12px 24px;display:flex;align-items:center;justify-content:space-between;gap:20px">
+    <a href="Altus - Bold.dc.html" style="display:flex;align-items:center;text-decoration:none;flex-shrink:0"><img src="https://altusresearch.com/wp-content/uploads/2020/01/ACR-LOGO-26-1.png" alt="Altus Clinical Research" style="height:74px;width:auto;display:block" /></a>
+
+    <sc-if value="{{ desktop }}" hint-placeholder-val="{{ true }}">
+      <nav style="display:flex;align-items:center;gap:24px">
+        <a href="Expertise.dc.html" style="text-decoration:none;color:#3a4a47;font-size:15px;font-weight:500">Expertise</a>
+        <a href="Volunteers.dc.html" style="text-decoration:none;color:#3a4a47;font-size:15px;font-weight:500">Volunteers</a>
+        <a href="Sponsors.dc.html" style="text-decoration:none;color:#3a4a47;font-size:15px;font-weight:500">Sponsors</a>
+        <a href="Studies.dc.html" style="text-decoration:none;color:#3a4a47;font-size:15px;font-weight:500">Studies</a>
+        <a href="Team.dc.html" style="text-decoration:none;color:#3a4a47;font-size:15px;font-weight:500">Team</a>
+        <a href="Contact.dc.html" style="text-decoration:none;background:#3a5b96;color:#fff;font-size:15px;font-weight:600;padding:11px 22px;border-radius:999px" style-hover="background:#2d487a">Enroll today</a>
+        <div style="display:flex;align-items:center;border:1px solid #c5d6d8;border-radius:999px;overflow:hidden;flex-shrink:0">
+          <button onClick="{{ setEn }}" style="{{ enStyle }}">EN</button>
+          <button onClick="{{ setEs }}" style="{{ esStyle }}">ES</button>
+        </div>
+      </nav>
+    </sc-if>
+
+    <sc-if value="{{ isMobile }}" hint-placeholder-val="{{ false }}">
+      <button onClick="{{ toggle }}" aria-label="Menu" style="background:#fff;border:1px solid #d9e5e7;border-radius:12px;width:46px;height:46px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;cursor:pointer;flex-shrink:0">
+        <span style="width:20px;height:2px;background:#15294d;border-radius:2px;display:block"></span>
+        <span style="width:20px;height:2px;background:#15294d;border-radius:2px;display:block"></span>
+        <span style="width:20px;height:2px;background:#15294d;border-radius:2px;display:block"></span>
+      </button>
+    </sc-if>
+  </div>
+
+  <sc-if value="{{ open }}" hint-placeholder-val="{{ false }}">
+    <nav style="display:flex;flex-direction:column;padding:8px 24px 18px;border-top:1px solid #d9e5e7;background:rgba(238,243,244,.98)">
+      <a href="Expertise.dc.html" style="text-decoration:none;color:#15294d;font-size:17px;font-weight:600;padding:13px 0;border-bottom:1px solid #dde8ea">Expertise</a>
+      <a href="Volunteers.dc.html" style="text-decoration:none;color:#15294d;font-size:17px;font-weight:600;padding:13px 0;border-bottom:1px solid #dde8ea">Volunteers</a>
+      <a href="Sponsors.dc.html" style="text-decoration:none;color:#15294d;font-size:17px;font-weight:600;padding:13px 0;border-bottom:1px solid #dde8ea">Sponsors</a>
+      <a href="Studies.dc.html" style="text-decoration:none;color:#15294d;font-size:17px;font-weight:600;padding:13px 0;border-bottom:1px solid #dde8ea">Studies</a>
+      <a href="Team.dc.html" style="text-decoration:none;color:#15294d;font-size:17px;font-weight:600;padding:13px 0;border-bottom:1px solid #dde8ea">Team</a>
+      <a href="Contact.dc.html" style="text-decoration:none;background:#3a5b96;color:#fff;font-size:16px;font-weight:600;padding:14px;border-radius:999px;text-align:center;margin-top:14px">Enroll today</a>
+      <div style="display:flex;align-items:center;gap:0;border:1px solid #c5d6d8;border-radius:999px;overflow:hidden;align-self:flex-start;margin-top:16px">
+        <button onClick="{{ setEn }}" style="{{ enStyle }}">EN</button>
+        <button onClick="{{ setEs }}" style="{{ esStyle }}">ES</button>
+      </div>
+    </nav>
+  </sc-if>
+</header>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:&quot;100%&quot;,&quot;height&quot;:100}}">
+class Component extends DCLogic {
+  state = { isMobile: false, open: false, lang: 'en' };
+  componentDidMount() {
+    this.mq = window.matchMedia('(max-width: 860px)');
+    this.onChange = () => this.setState({ isMobile: this.mq.matches, open: false });
+    this.onChange();
+    this.mq.addEventListener('change', this.onChange);
+    try {
+      const saved = localStorage.getItem('altus-lang');
+      if (saved === 'es' || saved === 'en') this.setState({ lang: saved });
+    } catch (e) {}
+  }
+  componentWillUnmount() {
+    if (this.mq) this.mq.removeEventListener('change', this.onChange);
+  }
+  setLang(lang) {
+    this.setState({ lang });
+    try { localStorage.setItem('altus-lang', lang); } catch (e) {}
+    try { window.dispatchEvent(new CustomEvent('altus-lang', { detail: lang })); } catch (e) {}
+  }
+  renderVals() {
+    const es = this.state.lang === 'es';
+    const baseBtn = 'border:none;cursor:pointer;font-family:inherit;font-size:13px;font-weight:700;padding:7px 12px;line-height:1;letter-spacing:.04em;';
+    const active = baseBtn + 'background:#3a5b96;color:#fff;';
+    const inactive = baseBtn + 'background:transparent;color:#3a4a47;';
+    return {
+      isMobile: this.state.isMobile,
+      desktop: !this.state.isMobile,
+      open: this.state.open,
+      toggle: () => this.setState(s => ({ open: !s.open })),
+      setEn: () => this.setLang('en'),
+      setEs: () => this.setLang('es'),
+      enStyle: es ? inactive : active,
+      esStyle: es ? active : inactive,
+    };
+  }
+}
+</script>
+</body>
+</html>
