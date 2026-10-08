@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script>
+(function(){
+  var host=location.hostname, parts=location.pathname.split('/');
+  var base=/github\.io$/.test(host)&&parts[1]?'/'+parts[1]:'';
+  document.write('<base href="'+base+'/">');
+  var p=location.pathname.slice(base.length)||'/';
+  if(!/\/$/.test(p)&&!/\.[a-z0-9]+$/i.test(p))p+='/';
+  p=p.toLowerCase();
+  var R={"/study_archive/": "/current-studies/", "/studies/": "/current-studies/", "/expertise/": "/areas-of-expertise/", "/team/": "/meet-our-team/", "/contact/": "/contact-us/", "/thank-you/": "/contact-us/", "/thank-you-2/": "/contact-us/", "/sitemap/": "/", "/covid-19-study/": "/current-studies/#past", "/coronavirus-letter-to-our-patients/": "/", "/dlm-internal/": "/contact-us/", "/which-clinical-study-is-right-for-you/": "/current-studies/", "/pages/studies.html": "/current-studies/", "/pages/questionaire.html": "/contact-us/", "/study/birth-control/": "/current-studies/#past", "/study/covid-19-study/": "/current-studies/#past", "/study/covid-19-vaccine/": "/current-studies/#past", "/study/moderna-vaccine/": "/current-studies/#past", "/study/meningococcal-vaccine-study/": "/current-studies/#past", "/study/actinic-keratosis/": "/current-studies/#past", "/study/atopic-dermatitis-eczema/": "/current-studies/#past", "/study/diabetes-and-fatty-liver/": "/current-studies/#past", "/study/endometriosis-pain/": "/current-studies/#past", "/study/high-blood-pressure/": "/current-studies/#past", "/study/hot-flashes/": "/study/hot-flash-study/", "/study/hpv-treatment-vaccine/": "/current-studies/#past", "/study/menopause/": "/current-studies/#past", "/study/osteoarthritis-of-the-knee/": "/current-studies/#past", "/study/osteoarthritis-of-the-knee-2/": "/current-studies/#past", "/study/pelvic-pain/": "/current-studies/#past", "/study/plaque-psoriasis/": "/current-studies/#past", "/study/psoriasis-study/": "/current-studies/#past", "/study/uterine-fibroids/": "/current-studies/#past", "/study/uti-study/": "/current-studies/#past", "/study/uti-urinary-tract-infection/": "/current-studies/#past", "/study/yeast-infections/": "/current-studies/#past", "/study/infant-formula/": "/current-studies/#past", "/paid-vs-unpaid-clinical-trial-patients-does-money-encourage-better-results/": "/our-blog/"}, P={"/category/": "/our-blog/", "/tag/": "/our-blog/", "/author/": "/our-blog/", "/study_category/": "/current-studies/", "/feed/": "/our-blog/", "/our-blog/page/": "/our-blog/"}, to=R[p];
+  if(!to){for(var k in P){if(p.indexOf(k)===0){to=P[k];break;}}}
+  if(to){location.replace(base+to);}
+})();
+</script>
+<title>Page not found | Altus Clinical Research</title>
+<meta name="description" content="Page not found.">
+<link rel="canonical" href="https://altusresearch.com/404.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Altus Clinical Research">
+<meta property="og:title" content="Page not found | Altus Clinical Research">
+<meta property="og:description" content="Page not found.">
+<meta property="og:url" content="https://altusresearch.com/404.html">
+<meta property="og:image" content="https://altusresearch.com/assets/img/hero-volunteers.jpg">
+<meta name="theme-color" content="#15294d">
+<link rel="icon" href="favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="assets/img/favicon-32.png">
+<link rel="apple-touch-icon" href="assets/img/favicon-180.png">
+<link rel="stylesheet" href="assets/css/site.css">
+<meta name="robots" content="noindex">
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+<header class="site-header">
+  <div class="site-header__bar">
+    <a href="" class="site-header__logo" aria-label="Altus Clinical Research home">
+      <picture><source srcset="assets/img/altus-logo.webp" type="image/webp"><img src="assets/img/altus-logo.png" alt="Altus Clinical Research" width="145" height="74"></picture>
+    </a>
+    <nav class="site-nav site-nav--desktop" aria-label="Main">
+      <a href="areas-of-expertise/">Expertise</a>
+      <a href="volunteers/">Volunteers</a>
+      <a href="sponsors/">Sponsors</a>
+      <a href="current-studies/">Studies</a>
+      <a href="meet-our-team/">Team</a>
+      <a href="contact-us/" class="btn-enroll">Enroll today</a>
+      <div class="lang-toggle" role="group" aria-label="Language">
+        <button type="button" data-lang="en" class="is-active">EN</button>
+        <button type="button" data-lang="es">ES</button>
+      </div>
+    </nav>
+    <button type="button" class="menu-toggle" aria-label="Menu" aria-expanded="false" aria-controls="mobile-nav">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+  <nav id="mobile-nav" class="site-nav site-nav--mobile" aria-label="Main" hidden>
+    <a href="areas-of-expertise/">Expertise</a>
+    <a href="volunteers/">Volunteers</a>
+    <a href="sponsors/">Sponsors</a>
+    <a href="current-studies/">Studies</a>
+    <a href="meet-our-team/">Team</a>
+    <a href="contact-us/" class="btn-enroll">Enroll today</a>
+    <div class="lang-toggle" role="group" aria-label="Language">
+      <button type="button" data-lang="en" class="is-active">EN</button>
+      <button type="button" data-lang="es">ES</button>
+    </div>
+  </nav>
+</header>
+
+<main id="main">
+<section class="page-hero"><div class="wrap">
+  <nav class="crumbs" aria-label="Breadcrumb"><a href="">Home</a></nav>
+  <span class="eyebrow">Page not found</span>
+  <h1>We couldn't find that page</h1>
+  <p class="lead">It may have moved when we updated our website. These links will get you where you need to go.</p>
+  
+</div></section><section class="section"><div class="wrap wrap--narrow"><ul class="res-list">
+  <li><a href="current-studies/">Studies enrolling now<small>Studies →</small></a></li>
+  <li><a href="volunteers/">Volunteer for a study<small>Volunteers →</small></a></li>
+  <li><a href="our-blog/">Articles about clinical research<small>Blog →</small></a></li>
+  <li><a href="contact-us/">Contact us<small>Contact →</small></a></li>
+</ul></div></section>
+</main>
+<footer class="site-footer">
+  <div class="site-footer__grid">
+    <div class="site-footer__brand">
+      <picture><source srcset="assets/img/altus-logo-white.webp" type="image/webp"><img src="assets/img/altus-logo-white.png" alt="Altus Clinical Research" width="94" height="48" loading="lazy"></picture>
+      <p>Advancing diversity through clinical trials, one community at a time. Lake Worth Beach, FL.</p>
+    </div>
+    <div><div class="site-footer__h">Explore</div><div class="site-footer__col"><a href="areas-of-expertise/">Expertise</a><a href="volunteers/">Volunteers</a><a href="current-studies/">Studies</a><a href="sponsors/">Sponsors</a></div></div>
+    <div><div class="site-footer__h">Company</div><div class="site-footer__col"><a href="about-us/">About Us</a><a href="meet-our-team/">Our Team</a><a href="in-the-press/">In the Press</a><a href="contact-us/">Contact</a></div></div>
+    <div><div class="site-footer__h">Resources</div><div class="site-footer__col"><a href="faq/">FAQ</a><a href="understanding-clinical-trials/">Understanding Clinical Trials</a><a href="our-blog/">Our Blog</a><a href="results-of-past-studies/">Results of Past Studies</a></div></div>
+    <div><div class="site-footer__h">Contact</div><div class="site-footer__col"><a href="tel:+15616410404">561-641-0404</a><span>4671 S. Congress Ave., Suite 100-B</span><span>Lake Worth, FL 33461</span></div></div>
+    <div><div class="site-footer__h">Follow</div><div class="site-footer__col"><a href="https://www.instagram.com/altusresearch/" target="_blank" rel="noopener">Instagram</a><a href="https://www.facebook.com/AltusResearch/" target="_blank" rel="noopener">Facebook</a><a href="https://twitter.com/altusresearch" target="_blank" rel="noopener">Twitter</a></div></div>
+  </div>
+  <div class="site-footer__legal"><span>© 2005–2026 Altus Clinical Research. All rights reserved.</span><span class="site-footer__links"><a href="wp-content/uploads/2020/02/notice-of-privacy-practice-1.pdf">Notice of Privacy Practices</a><a href="accessibility-statement/">Accessibility</a><a href="patient-forms/">Patient Forms</a></span></div>
+</footer>
+
+<script src="assets/js/site.js" defer></script>
+<script src="assets/js/i18n.js" defer></script>
+</body>
+</html>
