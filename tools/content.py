@@ -167,7 +167,7 @@ PAST = [
 
 # ---------------------------------------------------------------- team (from /meet-our-team/)
 INVESTIGATOR = ("Samuel N. Lederman, MD, FACOG", "Medical Director & Lead Investigator",
-                "wp-content/uploads/2024/09/Altus-Research-Doctors-Lederman.jpg")
+                "assets/img/dr-lederman.jpg")
 STAFF = [
     ("Jessica Ravelo", "Director of Operations", "wp-content/uploads/2024/06/Jessica-Ravelo-1.png"),
     ("Yanelys Perez", "Assistant Site Director", None),
