@@ -166,12 +166,13 @@ PAST = [
 ]
 
 # ---------------------------------------------------------------- team (from /meet-our-team/)
-INVESTIGATOR = ("Samuel N. Lederman, MD, FACOG", "Medical Director & Lead Investigator",
+INVESTIGATOR = ("Dr. Samuel N. Lederman, MD, FACOG", "Medical Director & Lead Investigator",
                 "assets/img/dr-lederman.jpg")
+# Shown under the investigator on /meet-our-team/
+PA = ("Cindy Mora", "Physician Assistant", "assets/img/cindy-mora.jpg")
 STAFF = [
     ("Jessica Ravelo", "Director of Operations", "wp-content/uploads/2024/06/Jessica-Ravelo-1.png"),
     ("Yanelys Perez", "Assistant Site Director", None),
-    ("Cindy Mora", "Physician Assistant", None),
     ("Teresa Carmona", "Office Manager", "wp-content/uploads/2024/06/Teresa-2.png"),
     ("Axel Hernandez", "Regulatory Manager", None),
     ("Florinda Francisco", "Lead Research Coordinator", None),

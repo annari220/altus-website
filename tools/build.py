@@ -415,11 +415,17 @@ def build_sponsors():
          "a 35,000-patient database and a proven history of rapid enrollment.", body)
 
 
-def person(name, role, photo, lead=False):
-    initials = "".join(w[0] for w in name.replace(",", "").split()[:2] if w[0].isalpha())
-    ph = (f'<img src="{{{{ROOT}}}}{photo}" alt="{esc(name)}" loading="lazy" decoding="async">' if photo else initials)
+def person(name, role, photo, lead=False, eyebrow="Investigator"):
+    initials = "".join(w[0] for w in name.replace(",", "").replace("Dr. ", "").split()[:2] if w[0].isalpha())
+    if photo:
+        stem = photo.rsplit(".", 1)[0]
+        img = f'<img src="{{{{ROOT}}}}{photo}" alt="{esc(name)}" loading="lazy" decoding="async">'
+        ph = (f'<picture><source srcset="{{{{ROOT}}}}{stem}.webp" type="image/webp">{img}</picture>'
+              if (ROOT_DIR / f"{stem}.webp").exists() else img)
+    else:
+        ph = initials
     return (f'<div class="person{" person--lead" if lead else ""}"><div class="person__photo">{ph}</div>'
-            f'<div class="person__body">{"<span class=eyebrow>Investigator</span>" if lead else ""}'
+            f'<div class="person__body">{f"<span class=eyebrow>{esc(eyebrow)}</span>" if lead else ""}'
             f'<div class="person__name"{" style=\"font-size:24px;margin-top:8px;font-family:Times New Roman,serif\"" if lead else ""}>{esc(name)}</div>'
             f'<div class="person__role">{esc(role)}</div></div></div>')
 
@@ -430,6 +436,7 @@ def build_team():
                 "standards, and stay current through ongoing continuing education.", trail=[("Our Team", None)])
     body += f"""<section class="section"><div class="wrap">
   {person(*C.INVESTIGATOR, lead=True)}
+  <div style="margin-top:22px">{person(*C.PA, lead=True, eyebrow="Clinical team")}</div>
   <h2 class="h2" style="margin:56px 0 24px">Our staff</h2>
   <div class="team-grid">{''.join(person(*p) for p in C.STAFF)}</div>
 </div></section>"""

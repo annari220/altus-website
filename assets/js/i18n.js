@@ -7,6 +7,7 @@
 (function () {
   var DICT = {
     /* ---- Oct 2026 homepage/volunteers/studies refresh ---- */
+    "Clinical team": "Equipo clínico",
     "EDC/Regulatory Assistant": "Asistente de EDC y asuntos regulatorios",
     "Physician Assistant": "Asistente médico (PA)",
     "Step 1": "Paso 1",

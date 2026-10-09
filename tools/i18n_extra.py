@@ -222,4 +222,5 @@ ES = {
 "Regulatory Manager":"Gerente de asuntos regulatorios",
 "EDC/Regulatory Assistant":"Asistente de EDC y asuntos regulatorios",
 "Physician Assistant":"Asistente médico (PA)",
+"Clinical team":"Equipo clínico",
 }
