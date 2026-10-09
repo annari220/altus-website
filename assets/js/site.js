@@ -34,3 +34,25 @@
     try { window.dispatchEvent(new CustomEvent('altus-lang', { detail: next })); } catch (err) {}
   });
 })();
+
+/* Homepage areas accordion: one item open at a time. */
+(function () {
+  var accs = document.querySelectorAll('[data-accordion]');
+  for (var a = 0; a < accs.length; a++) {
+    (function (acc) {
+      var btns = acc.querySelectorAll('.acc__btn');
+      function set(btn, open) {
+        btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+        var panel = document.getElementById(btn.getAttribute('aria-controls'));
+        if (panel) { if (open) panel.removeAttribute('hidden'); else panel.setAttribute('hidden', ''); }
+      }
+      for (var i = 0; i < btns.length; i++) {
+        btns[i].addEventListener('click', function () {
+          var wasOpen = this.getAttribute('aria-expanded') === 'true';
+          for (var j = 0; j < btns.length; j++) set(btns[j], false);
+          if (!wasOpen) set(this, true);
+        });
+      }
+    })(accs[a]);
+  }
+})();

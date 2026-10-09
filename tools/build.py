@@ -170,13 +170,8 @@ ENROLLING = [s for s in C.STUDIES if s["status"] == "enrolling"]
 AREA_BY_KEY = {a[0]: a for a in C.AREAS}
 
 
-def area_card(a, compact=False):
+def area_card(a):
     key, slug, name, line, _ = a
-    if compact:
-        return (f'<a href="{{{{ROOT}}}}areas-of-expertise/{slug}/" class="rf-card" style="text-decoration:none;background:#fff;'
-                f'border:1px solid #d9e5e7;border-radius:18px;padding:24px"><div class="icon-tile" style="width:36px;height:36px;'
-                f'border-radius:10px;margin-bottom:14px">{C.ICON[key]}</div><span style="font-size:16px;font-weight:700;'
-                f'color:#15294d">{esc(name)}</span></a>')
     return f"""<a href="{{{{ROOT}}}}areas-of-expertise/{slug}/" class="card rf-card">
   <div class="icon-tile">{C.ICON[key]}</div>
   <h3 class="h3">{esc(name)}</h3>
@@ -185,11 +180,40 @@ def area_card(a, compact=False):
 </a>"""
 
 
+STEPS = [("Reach out", "Tell us your area of interest by form or phone."),
+         ("Pre-screen", "A coordinator reviews eligibility at no cost."),
+         ("Participate", "Join the study with our team at every visit."),
+         ("Make an impact", "Help advance research for your community.")]
+
+
+def steps_list():
+    rows = "".join(f'<li><span class="steps__label">Step {i}</span><div><h3>{esc(t)}</h3><p>{esc(d)}</p></div></li>'
+                   for i, (t, d) in enumerate(STEPS, 1))
+    return f'<ol class="steps">{rows}</ol>'
+
+
+def area_accordion(open_key="womens"):
+    items = []
+    for key, slug, name, line, _ in C.AREAS:
+        is_open = key == open_key
+        items.append(
+            f'<div class="acc__item"><h3 class="acc__h"><button type="button" class="acc__btn" id="acc-b-{key}" '
+            f'aria-expanded="{"true" if is_open else "false"}" aria-controls="acc-p-{key}">{esc(name)}</button></h3>'
+            f'<div class="acc__panel" id="acc-p-{key}" role="region" aria-labelledby="acc-b-{key}"{"" if is_open else " hidden"}>'
+            f'<p>{esc(line)}</p><a href="{{{{ROOT}}}}areas-of-expertise/{slug}/">Learn more →</a></div></div>')
+    return '<div class="acc" data-accordion>' + "".join(items) + "</div>"
+
+
 # ------------------------------------------------------------------ pages
 def build_home():
     body = (ROOT_DIR / "pages/home.html").read_text(encoding="utf-8")
-    body = (body.replace("{{AREA_CARDS}}", "\n".join(area_card(a, True) for a in C.AREAS))
+    body = (body.replace("{{AREA_ACCORDION}}", area_accordion())
+                .replace("{{STEPS}}", steps_list())
                 .replace("{{STUDY_CARDS}}", "\n".join(study_card(s) for s in C.STUDIES))
+                .replace("{{RATING}}", esc(C.RATING))
+                .replace("{{RATING_COUNT}}", esc(C.RATING_COUNT))
+                .replace("{{RATING_LABEL}}", esc(C.RATING_LABEL))
+                .replace("{{MAPS_URL}}", esc(C.MAPS_URL))
                 .replace("{{N_ENROLLING}}", str(len(ENROLLING)))
                 .replace("{{N_AREAS}}", str(len(C.AREAS))))
     org = {
@@ -256,8 +280,12 @@ def build_expertise():
 
 
 def build_studies():
-    past = "".join(f"""<div class="past-card"><span class="chip chip--past">{esc(cat)}</span>
-  <h3>{esc(t)}</h3><p>{esc(d)}</p></div>""" for cat, t, d in C.PAST)
+    groups = []
+    for cat in ["Women's", "Dermatology", "Vaccines", "Internal Medicine", "Rheumatology", "Urology"]:
+        rows = "".join(f"<li><strong>{esc(t)}</strong><span>{esc(d)}</span></li>" for c, t, d in C.PAST if c == cat)
+        if rows:
+            groups.append(f'<div class="past-group"><h3>{esc(cat)}</h3><ul>{rows}</ul></div>')
+    past = "".join(groups)
     body = hero("Clinical studies", "Find a study that's right for you",
                 "Browse our currently enrolling trials below, or explore the studies we've completed. "
                 "Pre-screening is always free.", trail=[("Studies", None)])
@@ -267,7 +295,7 @@ def build_studies():
 </div></section>
 <section class="section section--alt" id="past"><div class="wrap">
   {section_head('Completed', 'Past studies')}
-  <div class="grid grid--3">{past}</div>
+  <div class="past-groups">{past}</div>
   <p class="muted" style="margin-top:24px;font-size:15px">Read about treatments our sites helped bring to patients on
   <a class="link-arrow" style="font-size:15px" href="{{{{ROOT}}}}results-of-past-studies/">Results of Past Studies →</a></p>
 </div></section>"""
@@ -318,23 +346,28 @@ def build_studies():
 
 
 def build_volunteers():
-    cards = [("Free pre-screening", "A coordinator reviews your eligibility at no cost and with no obligation to continue."),
-             ("Access to new options", "Join studies and treatments you won't find through routine care elsewhere."),
-             ("Care close to home", "Compassionate, attentive care from a team that treats your time and safety as the priority.")]
+    benefits = [("Free pre-screening", "A coordinator reviews your eligibility at no cost and with no obligation to continue."),
+                ("Learn about investigational studies",
+                 "A coordinator explains the study medication, the visits and the possible risks before you decide."),
+                ("Care close to home", "Compassionate, attentive care from a team that treats your time and safety as the priority.")]
     body = hero("Volunteers", "Your participation moves medicine forward",
                 "Volunteers play a critical role in advancing treatment for many conditions. We guide you through every "
                 "step in plain language, with compassionate care close to home.", trail=[("Volunteers", None)],
                 extra='<div class="btn-row"><a class="btn" href="{{ROOT}}current-studies/">Browse studies</a>'
                       '<a class="btn btn--light" href="{{ROOT}}contact-us/">Enroll today</a></div>')
-    body += '<section class="section"><div class="wrap"><div class="grid grid--3">' + "".join(
-        f'<div class="card"><div class="icon-tile">✓</div><h2 class="h3">{esc(t)}</h2><p>{esc(d)}</p></div>' for t, d in cards
-    ) + "</div></div></section>"
-    body += f"""<section class="section section--alt"><div class="wrap wrap--narrow prose">
+    body += ('<section class="section"><div class="wrap" style="max-width:1100px">'
+             '<span class="eyebrow">Why volunteer with Altus</span><h2 class="h2" style="margin-bottom:26px">What to expect from us</h2>'
+             '<ul class="benefits">' + "".join(f"<li><strong>{esc(t)}</strong><span>{esc(d)}</span></li>" for t, d in benefits)
+             + '</ul></div></section>')
+    body += ('<section class="section section--alt"><div class="wrap" style="max-width:1100px">'
+             '<span class="eyebrow">How it works</span><h2 class="h2">Joining a study is simple</h2>'
+             f'<div style="max-width:720px">{steps_list()}</div></div></section>')
+    body += f"""<section class="section"><div class="wrap wrap--narrow prose">
   <span class="eyebrow">What it means to volunteer</span>
   <h2 style="margin-top:12px">Informed consent and your rights</h2>
-  <p>Clinical trials are studies where volunteers are needed to test the effectiveness of new drugs, devices or other
+  <p>Clinical trials are studies where volunteers are needed to test the effectiveness of investigational drugs, devices or other
   treatments that may then be approved for general use. Our physicians help recruit patients to learn more about
-  certain medical conditions and the usefulness of new treatments.</p>
+  certain medical conditions and the usefulness of investigational treatments.</p>
   <p>Everyone who takes part in a study must meet that study's requirements and be willing to sign an informed consent.
   Informed consent is voluntary agreement, given by you (or a responsible proxy), after you have been told the methods,
   procedures, risks and benefits of taking part. Consent must be given freely and without undue influence, and you
@@ -344,7 +377,7 @@ def build_volunteers():
   <p><a href="{{{{ROOT}}}}{C.NPP_PDF}">View our Notice of Privacy Practices (PDF)</a> ·
   <a href="{{{{ROOT}}}}volunteers/what-to-expect-when-you-volunteer-for-a-clinical-trial-in-palm-beach-fl/">What to expect when you volunteer</a></p>
 </div></section>
-<section class="section"><div class="wrap">
+<section class="section section--alt"><div class="wrap">
   {section_head('Open enrollment', 'Currently enrolling studies', ('View all studies →', 'current-studies/'))}
   <div class="grid grid--3">{''.join(study_card(s) for s in C.STUDIES)}</div>
 </div></section>"""

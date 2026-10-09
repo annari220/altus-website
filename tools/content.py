@@ -16,6 +16,14 @@ MAP_EMBED = ("https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d1936.89029187
              "2sAltus%20Clinical%20Research!5e1!3m2!1sen!2sus!4v1731074305924!5m2!1sen!2sus")
 NPP_PDF = "wp-content/uploads/2020/02/notice-of-privacy-practice-1.pdf"
 
+# Review rating shown on the homepage (hero, stat bar, reviews band). One figure everywhere.
+# Google listing checked 2026-10-08: 4.6 from 62 reviews. If you switch to a combined figure,
+# say which sites it covers in RATING_LABEL (e.g. "reviews on Google and Facebook").
+RATING = "4.6"
+RATING_COUNT = "62"
+RATING_LABEL = "Google reviews"
+FACEBOOK_REVIEWS = "https://www.facebook.com/AltusResearch/reviews"
+
 # Patient inquiry form. Paste the Microsoft Forms embed URL here
 # (Forms > Collect responses > Embed > copy the src="..." value).
 # While empty, the contact page shows call / visit options instead of a form.
@@ -74,7 +82,7 @@ AREAS = [
      "Osteoarthritis of the knee and inflammatory conditions, with on-site imaging and DEXA.",
      ["Osteoarthritis", "Rheumatoid Arthritis", "Fibromyalgia"]),
     ("aesthetic", "aesthetic-medicine", "Aesthetic Medicine",
-     "Cosmetic and aesthetic dermatology trials evaluating new treatments and devices.",
+     "Cosmetic and aesthetic dermatology trials evaluating investigational treatments and devices.",
      ["Laser Skin Rejuvenation Surgery", "Breast Scar Revision", "Cellulite of the Upper Thighs"]),
     ("pediatrics", "pediatrics", "Pediatrics",
      "Past pediatric studies include trials for ear infections.",
@@ -139,13 +147,13 @@ PAST = [
     ("Dermatology", "Actinic Keratosis", "Evaluated a topical treatment for actinic keratosis skin lesions."),
     ("Dermatology", "Atopic Dermatitis / Eczema", "Studied adults with moderate to severe atopic dermatitis."),
     ("Dermatology", "Plaque Psoriasis", "Enrolled adults with moderate-to-severe plaque psoriasis."),
-    ("Dermatology", "Psoriasis Study", "Evaluated a new treatment for men and women living with psoriasis."),
+    ("Dermatology", "Psoriasis Study", "Evaluated an investigational treatment for men and women living with psoriasis."),
     ("Vaccines", "COVID-19 Study", "Tested a candidate vaccine for the prevention of COVID-19."),
     ("Vaccines", "Moderna Vaccine", "Assessed an mRNA vaccine candidate in eligible adult participants."),
     ("Vaccines", "Meningococcal Vaccine", "Evaluated a vaccine for the prevention of meningococcal disease."),
     ("Vaccines", "HPV Treatment Vaccine", "Studied an investigational vaccine for high-grade HPV."),
     ("Internal Medicine", "Diabetes & Fatty Liver", "Investigated a therapy for adults living with diabetes and fatty liver."),
-    ("Internal Medicine", "High Blood Pressure", "Enrolled men and women with high blood pressure to assess a new treatment."),
+    ("Internal Medicine", "High Blood Pressure", "Enrolled men and women with high blood pressure to assess an investigational treatment."),
     ("Rheumatology", "Osteoarthritis of the Knee", "Examined an investigational drug for osteoarthritis of the knee."),
     ("Women's", "Pelvic Pain", "Studied an investigational drug for women experiencing pelvic pain."),
     ("Women's", "Endometriosis Pain", "Studied women with endometriosis-related pain."),
