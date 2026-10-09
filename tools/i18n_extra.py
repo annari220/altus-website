@@ -223,4 +223,5 @@ ES = {
 "EDC/Regulatory Assistant":"Asistente de EDC y asuntos regulatorios",
 "Physician Assistant":"Asistente médico (PA)",
 "Clinical team":"Equipo clínico",
+"Sub-Investigator":"Subinvestigadora",
 }

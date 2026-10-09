@@ -436,7 +436,7 @@ def build_team():
                 "standards, and stay current through ongoing continuing education.", trail=[("Our Team", None)])
     body += f"""<section class="section"><div class="wrap">
   {person(*C.INVESTIGATOR, lead=True)}
-  <div style="margin-top:22px">{person(*C.PA, lead=True, eyebrow="Clinical team")}</div>
+  <div style="margin-top:22px">{person(*C.PA, lead=True, eyebrow="Investigator")}</div>
   <h2 class="h2" style="margin:56px 0 24px">Our staff</h2>
   <div class="team-grid">{''.join(person(*p) for p in C.STAFF)}</div>
 </div></section>"""
