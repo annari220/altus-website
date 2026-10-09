@@ -219,4 +219,7 @@ ES = {
 "Evaluated an investigational treatment for men and women living with psoriasis.":"Evaluó un tratamiento en investigación para hombres y mujeres que viven con psoriasis.",
 "Enrolled men and women with high blood pressure to assess an investigational treatment.":"Inscribió a hombres y mujeres con presión arterial alta para evaluar un tratamiento en investigación.",
 "Cosmetic and aesthetic dermatology trials evaluating investigational treatments and devices.":"Ensayos de dermatología cosmética y estética que evalúan tratamientos y dispositivos en investigación.",
+"Regulatory Manager":"Gerente de asuntos regulatorios",
+"EDC/Regulatory Assistant":"Asistente de EDC y asuntos regulatorios",
+"Physician Assistant":"Asistente médico (PA)",
 }

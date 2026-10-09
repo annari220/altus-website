@@ -171,14 +171,15 @@ INVESTIGATOR = ("Samuel N. Lederman, MD, FACOG", "Medical Director & Lead Invest
 STAFF = [
     ("Jessica Ravelo", "Director of Operations", "wp-content/uploads/2024/06/Jessica-Ravelo-1.png"),
     ("Yanelys Perez", "Assistant Site Director", None),
+    ("Cindy Mora", "Physician Assistant", None),
     ("Teresa Carmona", "Office Manager", "wp-content/uploads/2024/06/Teresa-2.png"),
-    ("Axel Hernandez", "Regulatory Specialist", None),
+    ("Axel Hernandez", "Regulatory Manager", None),
     ("Florinda Francisco", "Lead Research Coordinator", None),
     ("Stephanie Feliz", "Research Pharmacist and CRC", "wp-content/uploads/2024/06/Stephanie-Feliz.png"),
-    ("Junieth Leyes", "Recruitment Specialist and CRC", "wp-content/uploads/2024/06/Junieth-Leyes.png"),
     ("Elena Miguel-Thomas", "Research Assistant", "wp-content/uploads/2024/06/Elena-Miguel-Thomas.png"),
     ("Jessica Francisco", "Research Assistant", None),
-    ("Matthew DeBoer", "Data Entry Specialist", "wp-content/uploads/2024/06/Matthew-DeBoer.png"),
+    ("Matthew DeBoer", "EDC/Regulatory Assistant", "wp-content/uploads/2024/06/Matthew-DeBoer.png"),
+    ("Ernesto Mateo", "EDC/Regulatory Assistant", None),
 ]
 
 # ---------------------------------------------------------------- sponsors (design copy)

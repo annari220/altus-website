@@ -7,6 +7,8 @@
 (function () {
   var DICT = {
     /* ---- Oct 2026 homepage/volunteers/studies refresh ---- */
+    "EDC/Regulatory Assistant": "Asistente de EDC y asuntos regulatorios",
+    "Physician Assistant": "Asistente médico (PA)",
     "Step 1": "Paso 1",
     "Step 2": "Paso 2",
     "Step 3": "Paso 3",
