@@ -204,7 +204,8 @@ a[data-hv="star"]:hover{border-color:#f7b500 !important}
 .info-list a{color:#15294d;font-weight:700;text-decoration:none}
 .info-list a:hover{color:#14796b}
 .map{border:0;width:100%;height:300px;border-radius:4px;margin-top:24px;display:block}
-.form-frame{width:100%;min-height:980px;border:0;display:block;border-radius:4px;background:#fff}
+.form-frame{width:100%;height:1900px;border:0;display:block;border-radius:4px;background:#fff}
+@media (max-width:600px){.form-frame{height:2250px}}
 
 /* Resource list */
 .res-list{list-style:none;display:flex;flex-direction:column;gap:12px}

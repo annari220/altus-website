@@ -27,7 +27,7 @@ FACEBOOK_REVIEWS = "https://www.facebook.com/AltusResearch/reviews"
 # Patient inquiry form. Paste the Microsoft Forms embed URL here
 # (Forms > Collect responses > Embed > copy the src="..." value).
 # While empty, the contact page shows call / visit options instead of a form.
-FORM_EMBED_URL = ""
+FORM_EMBED_URL = "https://forms.cloud.microsoft/r/0zQCATadgT?embed=true"
 # Where the built-in inquiry form sends (used while FORM_EMBED_URL is empty).
 INQUIRY_EMAIL = "yperez@altusresearch.com"
 
