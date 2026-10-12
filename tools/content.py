@@ -167,7 +167,7 @@ PAST = [
 
 # ---------------------------------------------------------------- team (from /meet-our-team/)
 INVESTIGATOR = ("Dr. Samuel N. Lederman, MD, FACOG", "Medical Director & Lead Investigator",
-                "assets/img/dr-lederman.jpg")
+                "assets/img/dr-lederman-team.jpg")
 # Shown under the investigator on /meet-our-team/
 PA = ("Cindy Mora, PA-C", "Sub-Investigator", "assets/img/cindy-mora-hd.jpg")
 STAFF = [
