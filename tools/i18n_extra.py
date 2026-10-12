@@ -32,7 +32,7 @@ ES = {
 "An independent research site in Lake Worth, Florida":"Un sitio de investigación independiente en Lake Worth, Florida",
 "Medical Director & Lead Investigator":"Director médico e investigador principal",
 "Research Pharmacist and CRC":"Farmacéutica de investigación y CRC","Recruitment Specialist and CRC":"Especialista en reclutamiento y CRC",
-"Research Assistant":"Asistente de investigación","Regulatory Specialist":"Especialista regulatorio",
+"Research Assistant":"Asistente de investigación","Research Coordinator":"Coordinadora de investigación","Regulatory Specialist":"Especialista regulatorio",
 "Lead Research Coordinator":"Coordinadora principal de investigación","Data Entry Specialist":"Especialista en entrada de datos",
 "Office Manager":"Gerente de oficina","Director of Operations":"Directora de operaciones","Assistant Site Director":"Subdirectora del sitio",
 "Investigator":"Investigador",

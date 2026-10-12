@@ -177,6 +177,7 @@ STAFF = [
     ("Axel Hernandez", "Regulatory Manager", "assets/img/team/axel-hernandez.jpg"),
     ("Florinda Francisco", "Lead Research Coordinator", "assets/img/team/florinda-francisco.jpg"),
     ("Stephanie Feliz", "Research Pharmacist and CRC", "assets/img/team/stephanie-feliz.jpg"),
+    ("Linda Portales", "Research Coordinator", "assets/img/team/linda-portales.jpg"),
     ("Elena Miguel-Thomas", "Research Assistant", "assets/img/team/elena-miguel-thomas.jpg"),
     ("Jessica Francisco", "Research Assistant", "assets/img/team/jessica-francisco.jpg"),
     ("Matthew DeBoer", "EDC/Regulatory Assistant", "assets/img/team/matthew-deboer.jpg"),

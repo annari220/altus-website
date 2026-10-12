@@ -118,6 +118,7 @@
     "Research Pharmacist and CRC": "Farmacéutica de investigación y CRC",
     "Recruitment Specialist and CRC": "Especialista en reclutamiento y CRC",
     "Research Assistant": "Asistente de investigación",
+    "Research Coordinator": "Coordinadora de investigación",
     "Our facility, equipment and enrollment track record.": "Nuestras instalaciones, equipo e historial de inscripción.",
     "The investigator and staff behind every study.": "El investigador y el personal detrás de cada estudio.",
     "How taking part works, and studies enrolling now.": "Cómo funciona participar y los estudios con inscripción abierta.",
