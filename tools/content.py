@@ -171,15 +171,15 @@ INVESTIGATOR = ("Dr. Samuel N. Lederman, MD, FACOG", "Medical Director & Lead In
 # Shown under the investigator on /meet-our-team/
 PA = ("Cindy Mora, PA-C", "Sub-Investigator", "assets/img/cindy-mora-hd.jpg")
 STAFF = [
-    ("Jessica Ravelo", "Director of Operations", "wp-content/uploads/2024/06/Jessica-Ravelo-1.png"),
-    ("Yanelys Perez", "Assistant Site Director", None),
-    ("Teresa Carmona", "Office Manager", "wp-content/uploads/2024/06/Teresa-2.png"),
-    ("Axel Hernandez", "Regulatory Manager", None),
-    ("Florinda Francisco", "Lead Research Coordinator", None),
-    ("Stephanie Feliz", "Research Pharmacist and CRC", "wp-content/uploads/2024/06/Stephanie-Feliz.png"),
-    ("Elena Miguel-Thomas", "Research Assistant", "wp-content/uploads/2024/06/Elena-Miguel-Thomas.png"),
-    ("Jessica Francisco", "Research Assistant", None),
-    ("Matthew DeBoer", "EDC/Regulatory Assistant", "wp-content/uploads/2024/06/Matthew-DeBoer.png"),
+    ("Jessica Ravelo", "Director of Operations", "assets/img/team/jessica-ravelo.jpg"),
+    ("Yanelys Perez", "Assistant Site Director", "assets/img/team/yanelys-perez.jpg"),
+    ("Teresa Carmona", "Office Manager", "assets/img/team/teresa-carmona.jpg"),
+    ("Axel Hernandez", "Regulatory Manager", "assets/img/team/axel-hernandez.jpg"),
+    ("Florinda Francisco", "Lead Research Coordinator", "assets/img/team/florinda-francisco.jpg"),
+    ("Stephanie Feliz", "Research Pharmacist and CRC", "assets/img/team/stephanie-feliz.jpg"),
+    ("Elena Miguel-Thomas", "Research Assistant", "assets/img/team/elena-miguel-thomas.jpg"),
+    ("Jessica Francisco", "Research Assistant", "assets/img/team/jessica-francisco.jpg"),
+    ("Matthew DeBoer", "EDC/Regulatory Assistant", "assets/img/team/matthew-deboer.jpg"),
     ("Ernesto Mateo", "EDC/Regulatory Assistant", None),
 ]
 
