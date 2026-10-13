@@ -9,7 +9,7 @@ ES = {
 "Understanding Clinical Trials":"Entender los ensayos clínicos","Understanding clinical trials":"Entender los ensayos clínicos",
 "Results of Past Studies":"Resultados de estudios anteriores","Results of past studies":"Resultados de estudios anteriores",
 "Results":"Resultados","Areas of Expertise":"Áreas de especialización","Altus Clinical Research home":"Inicio de Altus Clinical Research",
-"Map to Altus Clinical Research":"Mapa a Altus Clinical Research","Call":"Llamar",
+"Map to Altus Clinical Research":"Mapa a Altus Clinical Research","Volunteer inquiry form":"Formulario de solicitud para voluntarios","Call":"Llamar",
 "PDF →":"PDF →","Read →":"Leer →","Results →":"Resultados →","Our team →":"Nuestro equipo →",
 "All articles →":"Todos los artículos →","Read the guide →":"Leer la guía →","Read the article →":"Leer el artículo →",
 "Open in Google Maps →":"Abrir en Google Maps →","Press release (PDF) →":"Comunicado de prensa (PDF) →",

@@ -28,6 +28,9 @@ FACEBOOK_REVIEWS = "https://www.facebook.com/AltusResearch/reviews"
 # (Forms > Collect responses > Embed > copy the src="..." value).
 # While empty, the contact page shows call / visit options instead of a form.
 FORM_EMBED_URL = "https://forms.cloud.microsoft/r/0zQCATadgT?embed=true"
+# Language codes added to the form (Forms > ... > Multilingual). The site's EN/ES switch
+# reloads the form with &lang=<code>. Each code must match the form's language exactly.
+FORM_LANG = {"en": "en-US", "es": "es-US"}
 # Where the built-in inquiry form sends (used while FORM_EMBED_URL is empty).
 INQUIRY_EMAIL = "yperez@altusresearch.com"
 

@@ -475,7 +475,10 @@ def build_about():
 
 def build_contact():
     if C.FORM_EMBED_URL:
-        form = (f'<div class="card" style="padding:12px"><iframe class="form-frame" src="{esc(C.FORM_EMBED_URL)}" '
+        base = C.FORM_EMBED_URL + ("&" if "?" in C.FORM_EMBED_URL else "?")
+        form = (f'<div class="card form-card"><iframe class="form-frame" id="inquiry-frame" '
+                f'src="{esc(base + "lang=" + C.FORM_LANG["en"])}" data-base="{esc(base)}" '
+                f'data-lang-en="{C.FORM_LANG["en"]}" data-lang-es="{C.FORM_LANG["es"]}" '
                 f'title="Volunteer inquiry form" loading="lazy"></iframe></div>')
     else:
         areas = "".join(f'<option>{esc(a[2])}</option>' for a in C.AREAS)

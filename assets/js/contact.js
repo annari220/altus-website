@@ -1,6 +1,19 @@
 /* Contact form: builds an email to the Altus inbox in the visitor's own mail app.
    Nothing is sent to any third party. Used until the Microsoft Form is embedded. */
 (function () {
+  /* Microsoft Form embed: follow the site's EN/ES switch via the form's ?lang= parameter. */
+  var frame = document.getElementById('inquiry-frame');
+  if (frame) {
+    var setLang = function (l) {
+      var code = frame.getAttribute('data-lang-' + (l === 'es' ? 'es' : 'en'));
+      var want = frame.getAttribute('data-base') + 'lang=' + code;
+      if (frame.getAttribute('src') !== want) frame.setAttribute('src', want);
+    };
+    var cur = 'en';
+    try { var saved = localStorage.getItem('altus-lang'); if (saved === 'es') cur = 'es'; } catch (e) {}
+    setLang(cur);
+    window.addEventListener('altus-lang', function (e) { setLang(e && e.detail); });
+  }
   var form = document.getElementById('inquiry');
   if (!form) return;
   var done = form.parentNode.querySelector('.inq__done');

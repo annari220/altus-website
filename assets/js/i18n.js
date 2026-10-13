@@ -49,6 +49,7 @@
     "Menu": "Menú",
     "Language": "Idioma",
     "Breadcrumb": "Ruta de navegación",
+    "Volunteer inquiry form": "Formulario de solicitud para voluntarios",
     "Main": "Principal",
     "About Us": "Sobre nosotros",
     "About us": "Sobre nosotros",
