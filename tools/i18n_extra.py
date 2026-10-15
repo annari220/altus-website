@@ -224,4 +224,9 @@ ES = {
 "Physician Assistant":"Asistente médico (PA)",
 "Clinical team":"Equipo clínico",
 "Sub-Investigator":"Subinvestigadora",
+# contact form (Power Automate)
+"Please fill in your name, phone, email and area of interest.":"Complete su nombre, teléfono, correo electrónico y área de interés.",
+"We couldn't send your information. Please try again, or call us at":"No pudimos enviar su información. Inténtelo de nuevo o llámenos al",
+"Thank you, we got your information.":"Gracias, recibimos su información.",
+"A study coordinator will reach out to you soon. Questions in the meantime? Call":"Un coordinador de estudios se comunicará con usted pronto. ¿Tiene preguntas mientras tanto? Llame al",
 }

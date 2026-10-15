@@ -21,5 +21,32 @@ Then run `python3 tools/build.py` and commit. The build writes every page's `ind
 - Images and PDFs keep their original `/wp-content/uploads/...` paths.
 - Rating shown is the Google listing figure (4.6, 62 reviews, checked 2026-10-08).
 - No invented testimonials. No Meta/Facebook pixel on study or contact pages.
-- Patient inquiries must go to a HIPAA-covered service (Microsoft Forms in Altus's Microsoft 365).
-  Paste its embed URL into `FORM_EMBED_URL` in `tools/content.py`.
+- Patient inquiries must go to a HIPAA-covered service. The contact form posts to a Power Automate
+  flow in Altus's Microsoft 365 (covered by Microsoft's HIPAA BAA), never to a third-party form service.
+
+## Volunteer form
+
+The form on `/contact-us/` (layout from the Claude Design "Altus - Bold" Contact screen) sends each
+inquiry to a Power Automate flow, which emails the coordinators from Altus's Microsoft 365.
+Its URL lives in `FORM_FLOW_URL` in `tools/content.py`. While that is empty the form can't send
+and tells visitors to call.
+
+Setting up the flow (once, signed in with an Altus Microsoft 365 account; the web trigger is a
+Power Automate **Premium** feature, so that account needs a Premium license or trial):
+
+1. make.powerautomate.com → **Create** → **Instant cloud flow** → trigger
+   **When an HTTP request is received**. Name it "Website volunteer inquiries".
+2. In the trigger set **Who can trigger the flow?** to **Anyone**. Leave the JSON schema empty:
+   the site sends plain form data, not JSON.
+3. Add **Send an email (V2)** (Office 365 Outlook).
+   - **To:** `yperez@altusresearch.com` and anyone else who should get inquiries
+   - **Subject:** `Volunteer inquiry: @{triggerFormDataValue('area')} - @{triggerFormDataValue('first')} @{triggerFormDataValue('last')}`
+   - **Body:** one line per field: `first`, `last`, `phone`, `email`, `area`, `message`, `language`,
+     each as `@{triggerFormDataValue('phone')}` and so on. If pasting `@{...}` doesn't turn into a
+     token, add it with the **fx** (expression) button as `triggerFormDataValue('phone')`.
+   - **Reply To** (advanced parameters): `@{triggerFormDataValue('email')}` so a reply goes to the volunteer.
+4. Add **Response**: status code `200`, header `Access-Control-Allow-Origin` = `https://altusresearch.com`,
+   body `{"ok":true}`. Without that header the page says "couldn't send" even though the email went out.
+5. Save, copy the trigger's **HTTP URL** into `FORM_FLOW_URL`, run the build, commit and push.
+6. Test on altusresearch.com/contact-us/ with obvious test details: the page should say
+   "Thank you, we got your information." and the email should arrive.

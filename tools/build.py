@@ -474,58 +474,50 @@ def build_about():
 
 
 def build_contact():
-    if C.FORM_EMBED_URL:
-        base = C.FORM_EMBED_URL + ("&" if "?" in C.FORM_EMBED_URL else "?")
-        form = (f'<div class="card form-card"><iframe class="form-frame" id="inquiry-frame" '
-                f'src="{esc(base + "lang=" + C.FORM_LANG["en"])}" data-base="{esc(base)}" '
-                f'data-lang-en="{C.FORM_LANG["en"]}" data-lang-es="{C.FORM_LANG["es"]}" '
-                f'title="Volunteer inquiry form" loading="lazy"></iframe></div>')
-    else:
-        areas = "".join(f'<option>{esc(a[2])}</option>' for a in C.AREAS)
-        form = f"""<div class="card" style="padding:32px">
-  <span class="eyebrow">Get pre-screened</span>
-  <h2 class="h2" style="font-size:32px">Send us your information</h2>
-  <form id="inquiry" class="inq" novalidate data-to="{C.INQUIRY_EMAIL}">
-    <div class="inq__row">
-      <label>First name<input name="first" autocomplete="given-name" required></label>
-      <label>Last name<input name="last" autocomplete="family-name" required></label>
+    """Contact page, laid out from the Claude Design "Altus - Bold" Contact screen: one card with
+    the intro, phone, address and map on the left and the volunteer form on the right."""
+    if not C.FORM_FLOW_URL:
+        print("WARNING: FORM_FLOW_URL in tools/content.py is empty, so the contact form can't send.")
+    # Values stay English whatever language the page is shown in, so the emails always match.
+    areas = [a[2] for a in C.AREAS] + ["Weight Loss", "Not sure / any study"]
+    options = "".join(f'<option value="{esc(a)}">{esc(a)}</option>' for a in areas)
+    phone_link = f'<a href="tel:{C.PHONE_TEL}">{C.PHONE}</a>'
+    body = f"""<section class="enroll-section"><div class="wrap">
+  {crumbs(("Contact", None))}
+  <div class="enroll">
+    <div class="enroll__intro">
+      <span class="eyebrow">Get started</span>
+      <h1>Enroll today.</h1>
+      <p class="lead">Tell us a little about yourself and our team will reach out about current and upcoming studies.</p>
     </div>
-    <div class="inq__row">
-      <label>Phone<input name="phone" type="tel" autocomplete="tel" required></label>
-      <label>Email<input name="email" type="email" autocomplete="email" required></label>
-    </div>
-    <label>Area of interest<select name="area" required><option value="">Select an area</option>{areas}<option>Weight Loss</option><option>Not sure / any study</option></select></label>
-    <label>Message (optional)<textarea name="message" rows="4"></textarea></label>
-    <label class="inq__check"><input type="checkbox" name="consent" required><span>We'll never share your information. By submitting, you agree to be contacted about studies.</span></label>
-    <p class="inq__err" role="alert" hidden>Please fill in every field marked above and tick the box.</p>
-    <button class="btn" type="submit">Send my information →</button>
-    <p class="inq__note">Clicking send opens your email app with your details filled in. Just press Send there.
-    No email app? Call us at <a href="tel:{C.PHONE_TEL}">{C.PHONE}</a>.</p>
-  </form>
-  <div class="inq__done" hidden>
-    <h3 class="h3">Almost done: press Send in your email app.</h3>
-    <p>Your email app should have opened with your details filled in. Press Send and a coordinator will reach out.
-    If nothing opened, please call <a href="tel:{C.PHONE_TEL}">{C.PHONE}</a>.</p>
-  </div>
-</div>"""
-    body = hero("Contact", "Enroll today.",
-                "Tell us a little about yourself and our team will reach out about current and upcoming studies.",
-                trail=[("Contact", None)])
-    body += f"""<section class="section"><div class="wrap contact-layout">
-  <div>
-    <span class="eyebrow">Visit or call</span>
-    <h2 class="h2">Altus Clinical Research</h2>
-    <ul class="info-list">
-      <li><span class="icon-tile" style="margin:0;flex-shrink:0">☎</span><span>Phone<br><a href="tel:{C.PHONE_TEL}">{C.PHONE}</a></span></li>
-      <li><span class="icon-tile" style="margin:0;flex-shrink:0">⌂</span><span>{C.ADDRESS_1}<br>{C.ADDRESS_2}<br>
-        <a href="{C.MAPS_URL}" target="_blank" rel="noopener" style="font-size:14px;color:#14796b">Open in Google Maps →</a></span></li>
+    <ul class="enroll__info">
+      <li><span class="icon-tile" aria-hidden="true">☎</span><a href="tel:{C.PHONE_TEL}">{C.PHONE}</a></li>
+      <li><span class="icon-tile" aria-hidden="true">⌖</span><span>{C.ADDRESS_1.replace("Ave.", "Avenue")}<br>{C.ADDRESS_2}</span></li>
     </ul>
-    <p class="muted" style="font-size:15px;line-height:1.6;margin-top:22px">Our research facility is on the campus of the
-    largest hospital in Palm Beach County, minutes from Palm Beach International Airport and all major highways.</p>
-    <iframe class="map" src="{C.MAP_EMBED}" title="Map to Altus Clinical Research" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-  </div>
-  <div>{form}
-    <p class="muted" style="font-size:13px;line-height:1.55;margin-top:14px"><a href="{{{{ROOT}}}}{C.NPP_PDF}" style="color:#14796b">Notice of Privacy Practices</a></p>
+    <iframe class="enroll__map" src="{C.MAP_EMBED}" title="Map to Altus Clinical Research" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    <div class="enroll__form">
+      <form id="inquiry" novalidate data-endpoint="{esc(C.FORM_FLOW_URL)}">
+        <div class="enroll__pair">
+          <input name="first" placeholder="First name" aria-label="First name" autocomplete="given-name" required>
+          <input name="last" placeholder="Last name" aria-label="Last name" autocomplete="family-name" required>
+        </div>
+        <div class="enroll__pair">
+          <input name="phone" type="tel" placeholder="Phone" aria-label="Phone" autocomplete="tel" required>
+          <input name="email" type="email" placeholder="Email" aria-label="Email" autocomplete="email" required>
+        </div>
+        <select name="area" aria-label="Area of interest" required><option value="" selected disabled>Area of interest</option>{options}</select>
+        <textarea name="message" rows="3" placeholder="Message (optional)" aria-label="Message (optional)"></textarea>
+        <div class="enroll__hp" aria-hidden="true"><label>Leave this empty <input name="website" tabindex="-1" autocomplete="off"></label></div>
+        <p class="enroll__err" data-err="fields" role="alert" hidden>Please fill in your name, phone, email and area of interest.</p>
+        <p class="enroll__err" data-err="send" role="alert" hidden>We couldn't send your information. Please try again, or call us at {phone_link}.</p>
+        <button class="enroll__btn" type="submit">Enroll today</button>
+        <p class="enroll__note">We'll never share your information. By submitting, you agree to be contacted about studies.</p>
+      </form>
+      <div class="enroll__done" hidden tabindex="-1">
+        <h2 class="h3">Thank you, we got your information.</h2>
+        <p>A study coordinator will reach out to you soon. Questions in the meantime? Call {phone_link}.</p>
+      </div>
+    </div>
   </div>
 </div></section>"""
     page("/contact-us/", "Contact Us | Altus Clinical Research, Lake Worth, FL",

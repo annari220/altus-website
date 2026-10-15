@@ -1,61 +1,69 @@
-/* Contact form: builds an email to the Altus inbox in the visitor's own mail app.
-   Nothing is sent to any third party. Used until the Microsoft Form is embedded. */
+/* Contact form: posts the volunteer's details to Altus's Power Automate flow
+   (data-endpoint, from FORM_FLOW_URL in tools/content.py), which emails the
+   coordinators from Altus's Microsoft 365. Sent as plain form data so the browser
+   needs no CORS pre-check; the flow's Response action must return
+   Access-Control-Allow-Origin for the page to see that it worked. */
 (function () {
-  /* Microsoft Form embed: follow the site's EN/ES switch via the form's ?lang= parameter. */
-  var frame = document.getElementById('inquiry-frame');
-  if (frame) {
-    var setLang = function (l) {
-      var code = frame.getAttribute('data-lang-' + (l === 'es' ? 'es' : 'en'));
-      var want = frame.getAttribute('data-base') + 'lang=' + code;
-      if (frame.getAttribute('src') !== want) frame.setAttribute('src', want);
-    };
-    var cur = 'en';
-    try { var saved = localStorage.getItem('altus-lang'); if (saved === 'es') cur = 'es'; } catch (e) {}
-    setLang(cur);
-    window.addEventListener('altus-lang', function (e) { setLang(e && e.detail); });
-  }
   var form = document.getElementById('inquiry');
   if (!form) return;
-  var done = form.parentNode.querySelector('.inq__done');
-  var err = form.querySelector('.inq__err');
-  form.addEventListener('input', clear);
-  form.addEventListener('change', clear);
+  var done = form.parentNode.querySelector('.enroll__done');
+  var errFields = form.querySelector('[data-err="fields"]');
+  var errSend = form.querySelector('[data-err="send"]');
+  var btn = form.querySelector('button[type="submit"]');
+
+  function isBad(el) {
+    var v = el.value.trim();
+    if (!v) return true;
+    if (el.type === 'email') return !/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(v);
+    if (el.type === 'tel') return v.replace(/\D/g, '').length < 7;
+    return false;
+  }
   function clear(e) {
     var el = e.target;
-    if (el.getAttribute('aria-invalid') === 'true') {
-      var bad = el.type === 'checkbox' ? !el.checked : !el.value.trim();
-      if (!bad) el.setAttribute('aria-invalid', 'false');
-    }
-    if (!form.querySelector('[aria-invalid="true"]')) err.hidden = true;
+    if (el.getAttribute('aria-invalid') === 'true' && !isBad(el)) el.setAttribute('aria-invalid', 'false');
+    if (!form.querySelector('[aria-invalid="true"]')) errFields.hidden = true;
   }
+  form.addEventListener('input', clear);
+  form.addEventListener('change', clear);
+
+  function finish() {
+    form.hidden = true;
+    done.hidden = false;
+    done.focus();
+  }
+
   form.addEventListener('submit', function (e) {
     e.preventDefault();
+    errSend.hidden = true;
     var ok = true;
     Array.prototype.forEach.call(form.querySelectorAll('[required]'), function (el) {
-      var bad = el.type === 'checkbox' ? !el.checked : !el.value.trim();
-      if (el.type === 'email' && el.value && !/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(el.value)) bad = true;
+      var bad = isBad(el);
       el.setAttribute('aria-invalid', bad ? 'true' : 'false');
       if (bad) ok = false;
     });
-    err.hidden = ok;
-    if (!ok) { var first = form.querySelector('[aria-invalid="true"]'); if (first) first.focus(); return; }
+    errFields.hidden = ok;
+    if (!ok) { form.querySelector('[aria-invalid="true"]').focus(); return; }
+
     var f = form.elements;
-    var name = f.first.value.trim() + ' ' + f.last.value.trim();
-    var lines = [
-      'New volunteer inquiry from altusresearch.com', '',
-      'Name: ' + name,
-      'Phone: ' + f.phone.value.trim(),
-      'Email: ' + f.email.value.trim(),
-      'Area of interest: ' + f.area.value,
-      'Message: ' + (f.message.value.trim() || '(none)'),
-      'Language: ' + (document.documentElement.lang === 'es' ? 'Spanish' : 'English'), '',
-      'The sender agreed to be contacted about studies.'
-    ];
-    var href = 'mailto:' + form.getAttribute('data-to') +
-      '?subject=' + encodeURIComponent('Volunteer inquiry: ' + f.area.value + ' - ' + name) +
-      '&body=' + encodeURIComponent(lines.join('\n'));
-    window.location.href = href;
-    form.hidden = true;
-    if (done) { done.hidden = false; done.setAttribute('tabindex', '-1'); done.focus(); }
+    if (f.website.value) { finish(); return; }   // honeypot: only bots fill the hidden field
+    var endpoint = form.getAttribute('data-endpoint');
+    if (!endpoint) { errSend.hidden = false; return; }
+
+    var data = new URLSearchParams();
+    ['first', 'last', 'phone', 'email', 'area', 'message'].forEach(function (k) { data.append(k, f[k].value.trim()); });
+    data.append('language', document.documentElement.lang === 'es' ? 'Spanish' : 'English');
+
+    btn.disabled = true;
+    form.setAttribute('aria-busy', 'true');
+    var ctrl = window.AbortController ? new AbortController() : null;
+    var timer = ctrl && setTimeout(function () { ctrl.abort(); }, 20000);
+    fetch(endpoint, { method: 'POST', body: data, signal: ctrl && ctrl.signal })
+      .then(function (r) { if (!r.ok) throw new Error('HTTP ' + r.status); finish(); })
+      .catch(function () { errSend.hidden = false; })
+      .then(function () {
+        clearTimeout(timer);
+        btn.disabled = false;
+        form.removeAttribute('aria-busy');
+      });
   });
 })();

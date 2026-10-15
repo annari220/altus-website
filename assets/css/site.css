@@ -197,18 +197,51 @@ a[data-hv="star"]:hover{border-color:#f7b500 !important}
 .post-card h3{font-family:'Times New Roman',Times,serif;font-size:20px;line-height:1.25;color:#15294d}
 .post-card time{display:block;font-size:13px;color:#5c6b68;margin-top:8px}
 
-/* Contact */
-.contact-layout{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.15fr);gap:32px;align-items:start}
-.info-list{list-style:none;display:flex;flex-direction:column;gap:18px;margin-top:22px}
-.info-list li{display:flex;gap:14px;align-items:flex-start;font-size:16px;line-height:1.5;color:#15294d}
-.info-list a{color:#15294d;font-weight:700;text-decoration:none}
-.info-list a:hover{color:#14796b}
-.map{border:0;width:100%;height:300px;border-radius:4px;margin-top:24px;display:block}
-.form-card{padding:12px;border-top:0;position:relative;overflow:hidden;background:#fff}
-.form-card::before{content:"";position:absolute;left:0;right:0;top:0;height:5px;background:linear-gradient(90deg,#14796b,#3a5b96)}
-.form-card .form-frame{margin-top:5px}
-.form-frame{width:100%;height:1900px;border:0;display:block;border-radius:4px;background:#fff}
-@media (max-width:600px){.form-frame{height:2250px}}
+/* Contact: Claude Design "Altus - Bold" Contact screen. One card, intro/phone/address/map on
+   the left, volunteer form on the right; on phones the form moves up under the intro. */
+.enroll-section{padding:56px 0 72px}
+.enroll-section .crumbs{word-spacing:3px}
+.enroll-section .crumbs a{font-weight:400}
+.enroll{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);grid-template-areas:"intro form" "info form" "map form";grid-template-rows:auto auto 1fr;column-gap:48px;align-items:start;background:#fff;border:1px solid #e1e8ea;border-radius:4px;padding:48px;box-shadow:0 30px 60px -28px rgba(21,41,77,.28)}
+.enroll__intro{grid-area:intro}
+.enroll h1{font-size:42px;line-height:1.1;font-weight:700;color:#15294d;margin-top:10px}
+.enroll .lead{font-size:17px;max-width:none}
+.enroll__info{grid-area:info;list-style:none;display:flex;flex-direction:column;gap:12px;margin-top:28px}
+.enroll__info li{display:flex;align-items:center;gap:12px;font-size:15px;line-height:1.47;color:#33423f}
+.enroll__info .icon-tile{width:36px;height:36px;margin:0;flex-shrink:0;font-weight:400}
+.enroll__info a{color:inherit;text-decoration:none}
+.enroll__info a:hover{color:#14796b}
+.enroll__map{grid-area:map;display:block;width:100%;height:200px;border:0;border-radius:4px;margin-top:24px}
+.enroll__form{grid-area:form}
+#inquiry{display:flex;flex-direction:column;gap:14px}
+#inquiry[hidden]{display:none}
+.enroll__pair{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:14px}
+.enroll input,.enroll select,.enroll textarea{font:inherit;font-size:15px;line-height:1.3;color:#2f3a38;background:#f2f7f8;border:1px solid #d6dddb;border-radius:3px;padding:13px 16px;width:100%}
+.enroll ::placeholder{color:#737d7b;opacity:1}
+.enroll select{appearance:none;-webkit-appearance:none;padding-left:20px;padding-right:36px;cursor:pointer;background:#f2f7f8 url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6' viewBox='0 0 10 6'%3E%3Cpath d='M1 1l4 4 4-4' fill='none' stroke='%232f3a38' stroke-width='1.4' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") no-repeat right 11px center}
+.enroll textarea{height:98px;min-height:98px;resize:vertical}
+.enroll input:focus,.enroll select:focus,.enroll textarea:focus{outline:3px solid #9fd3ea;outline-offset:1px;border-color:#3a5b96;background-color:#fff}
+.enroll [aria-invalid="true"]{border-color:#b3261e;background-color:#fff5f4}
+.enroll__btn{font:inherit;font-size:16px;font-weight:700;color:#fff;background:#3a5b96;border:0;border-radius:3px;min-height:48px;padding:13px 24px;width:100%;cursor:pointer}
+.enroll__btn:hover{background:#2d487a}
+.enroll__btn:focus-visible{outline:3px solid #9fd3ea;outline-offset:2px}
+.enroll__btn[disabled]{opacity:.7;cursor:progress}
+.enroll__note{font-size:12px;line-height:1.5;color:#7a8583;text-align:center;margin-top:-2px}
+.enroll__err{font-size:14px;line-height:1.5;font-weight:600;color:#b3261e}
+.enroll__err a{color:inherit}
+.enroll__hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
+.enroll__done{background:#eef7f1;border:1px solid #cfe3da;border-radius:4px;padding:24px}
+.enroll__done p{font-size:15px;line-height:1.6;color:#42544f;margin-top:8px}
+.enroll__done a{color:#14796b;font-weight:700}
+@media (max-width:860px){
+  .enroll{grid-template-columns:minmax(0,1fr);grid-template-areas:"intro" "form" "info" "map";grid-template-rows:none;padding:32px 24px}
+  .enroll__form{margin-top:28px}
+  .enroll__info{margin-top:36px}
+  /* 16px stops iPhones zooming in when a field is tapped */
+  .enroll input,.enroll select,.enroll textarea{font-size:16px}
+}
+@media (max-width:600px){.enroll-section{padding:28px 0 52px}.enroll{padding:28px 20px}}
+@media (max-width:480px){.enroll__pair{grid-template-columns:minmax(0,1fr)}}
 
 /* Resource list */
 .res-list{list-style:none;display:flex;flex-direction:column;gap:12px}
@@ -227,7 +260,7 @@ a[data-hv="star"]:hover{border-color:#f7b500 !important}
 .faq .ans a{color:#14796b;font-weight:600}
 
 @media (max-width:860px){
-  .study-layout,.contact-layout{grid-template-columns:1fr}
+  .study-layout{grid-template-columns:1fr}
   .aside-card{position:static}
   .person--lead{grid-template-columns:1fr}
   .person--lead .person__photo{aspect-ratio:4/5;min-height:0}
@@ -246,22 +279,6 @@ a[data-hv="star"]:hover{border-color:#f7b500 !important}
 .chip{white-space:nowrap;font-size:11px;letter-spacing:.05em}
 @media (max-width:600px){.team-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}.person__body{padding:12px 12px 14px}.person__name{font-size:15px}.person__role{font-size:13px}}
 
-/* Inquiry form */
-.inq{display:flex;flex-direction:column;gap:16px;margin-top:20px}
-.inq__row{display:grid;grid-template-columns:1fr 1fr;gap:16px}
-.inq label{display:flex;flex-direction:column;gap:6px;font-size:14px;font-weight:700;color:#15294d}
-.inq input,.inq select,.inq textarea{font:inherit;font-weight:400;font-size:16px;color:#15294d;background:#f7fafa;border:1px solid #c5d6d8;border-radius:4px;padding:12px 14px;width:100%}
-.inq input:focus,.inq select:focus,.inq textarea:focus{outline:3px solid #9fd3ea;outline-offset:1px;border-color:#3a5b96;background:#fff}
-.inq [aria-invalid="true"]{border-color:#b3261e;background:#fff5f4}
-.inq .inq__check{flex-direction:row;align-items:flex-start;gap:10px;font-weight:400;font-size:14px;line-height:1.5;color:#42544f}
-.inq .inq__check input{width:20px;height:20px;flex-shrink:0;margin-top:1px;padding:0}
-.inq__err{color:#b3261e;font-size:14px;font-weight:600}
-.inq .btn{align-self:flex-start}
-.inq__note{font-size:13px;line-height:1.55;color:#5c6b68}
-.inq__note a,.inq__done a{color:#14796b;font-weight:700}
-.inq__done{margin-top:18px;background:#eef7f1;border:1px solid #cfe3da;border-radius:4px;padding:20px}
-.inq__done p{font-size:15px;line-height:1.6;color:#42544f;margin-top:8px}
-@media (max-width:600px){.inq__row{grid-template-columns:1fr}}
 
 /* ===== Homepage refresh (Oct 2026) ===== */
 a[data-hv="light"]:hover{background:#e4edee !important}
