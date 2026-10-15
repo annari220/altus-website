@@ -28,8 +28,8 @@ Then run `python3 tools/build.py` and commit. The build writes every page's `ind
 
 The form on `/contact-us/` (layout from the Claude Design "Altus - Bold" Contact screen) sends each
 inquiry to a Power Automate flow, which emails the coordinators from Altus's Microsoft 365.
-Its URL lives in `FORM_FLOW_URL` in `tools/content.py`. While that is empty the form can't send
-and tells visitors to call.
+Its URL lives in `FORM_FLOW_URL` in `tools/content.py`. While that is empty the form opens the
+visitor's own email app with their details addressed to `INQUIRY_EMAIL`, and they press Send there.
 
 Setting up the flow (once, signed in with an Altus Microsoft 365 account; the web trigger is a
 Power Automate **Premium** feature, so that account needs a Premium license or trial):

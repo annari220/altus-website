@@ -27,9 +27,10 @@ FACEBOOK_REVIEWS = "https://www.facebook.com/AltusResearch/reviews"
 # Volunteer inquiry form on the contact page. It posts to a Power Automate flow in Altus's
 # Microsoft 365 ("When an HTTP request is received"), which emails the coordinators, so
 # inquiries stay inside Microsoft's HIPAA agreement. Paste the trigger's HTTP URL here;
-# setup steps are in README.md under "Volunteer form". While empty, the form can't send
-# and asks visitors to call instead.
+# setup steps are in README.md under "Volunteer form". While empty, the form opens the
+# visitor's own email app with their details addressed to INQUIRY_EMAIL instead.
 FORM_FLOW_URL = ""
+INQUIRY_EMAIL = "yperez@altusresearch.com"
 
 # ---------------------------------------------------------------- icons
 ICON = {

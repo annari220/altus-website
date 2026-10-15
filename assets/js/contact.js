@@ -2,11 +2,11 @@
    (data-endpoint, from FORM_FLOW_URL in tools/content.py), which emails the
    coordinators from Altus's Microsoft 365. Sent as plain form data so the browser
    needs no CORS pre-check; the flow's Response action must return
-   Access-Control-Allow-Origin for the page to see that it worked. */
+   Access-Control-Allow-Origin for the page to see that it worked.
+   With no flow URL, it opens the visitor's own email app addressed to data-to. */
 (function () {
   var form = document.getElementById('inquiry');
   if (!form) return;
-  var done = form.parentNode.querySelector('.enroll__done');
   var errFields = form.querySelector('[data-err="fields"]');
   var errSend = form.querySelector('[data-err="send"]');
   var btn = form.querySelector('button[type="submit"]');
@@ -26,10 +26,29 @@
   form.addEventListener('input', clear);
   form.addEventListener('change', clear);
 
-  function finish() {
+  function finish(kind) {
+    var done = form.parentNode.querySelector('[data-done="' + kind + '"]');
     form.hidden = true;
     done.hidden = false;
     done.focus();
+  }
+
+  function openMail(f) {
+    var name = f.first.value.trim() + ' ' + f.last.value.trim();
+    var lines = [
+      'New volunteer inquiry from altusresearch.com', '',
+      'Name: ' + name,
+      'Phone: ' + f.phone.value.trim(),
+      'Email: ' + f.email.value.trim(),
+      'Area of interest: ' + f.area.value,
+      'Message: ' + (f.message.value.trim() || '(none)'),
+      'Language: ' + (document.documentElement.lang === 'es' ? 'Spanish' : 'English'), '',
+      'The sender agreed to be contacted about studies.'
+    ];
+    window.location.href = 'mailto:' + form.getAttribute('data-to') +
+      '?subject=' + encodeURIComponent('Volunteer inquiry: ' + f.area.value + ' - ' + name) +
+      '&body=' + encodeURIComponent(lines.join('\n'));
+    finish('mail');
   }
 
   form.addEventListener('submit', function (e) {
@@ -45,9 +64,9 @@
     if (!ok) { form.querySelector('[aria-invalid="true"]').focus(); return; }
 
     var f = form.elements;
-    if (f.website.value) { finish(); return; }   // honeypot: only bots fill the hidden field
+    if (f.website.value) { finish('sent'); return; }   // honeypot: only bots fill the hidden field
     var endpoint = form.getAttribute('data-endpoint');
-    if (!endpoint) { errSend.hidden = false; return; }
+    if (!endpoint) { openMail(f); return; }
 
     var data = new URLSearchParams();
     ['first', 'last', 'phone', 'email', 'area', 'message'].forEach(function (k) { data.append(k, f[k].value.trim()); });
@@ -58,7 +77,7 @@
     var ctrl = window.AbortController ? new AbortController() : null;
     var timer = ctrl && setTimeout(function () { ctrl.abort(); }, 20000);
     fetch(endpoint, { method: 'POST', body: data, signal: ctrl && ctrl.signal })
-      .then(function (r) { if (!r.ok) throw new Error('HTTP ' + r.status); finish(); })
+      .then(function (r) { if (!r.ok) throw new Error('HTTP ' + r.status); finish('sent'); })
       .catch(function () { errSend.hidden = false; })
       .then(function () {
         clearTimeout(timer);

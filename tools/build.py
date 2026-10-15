@@ -477,7 +477,7 @@ def build_contact():
     """Contact page, laid out from the Claude Design "Altus - Bold" Contact screen: one card with
     the intro, phone, address and map on the left and the volunteer form on the right."""
     if not C.FORM_FLOW_URL:
-        print("WARNING: FORM_FLOW_URL in tools/content.py is empty, so the contact form can't send.")
+        print("NOTE: FORM_FLOW_URL is empty, so the contact form opens the visitor's email app (to INQUIRY_EMAIL).")
     # Values stay English whatever language the page is shown in, so the emails always match.
     areas = [a[2] for a in C.AREAS] + ["Weight Loss", "Not sure / any study"]
     options = "".join(f'<option value="{esc(a)}">{esc(a)}</option>' for a in areas)
@@ -496,7 +496,7 @@ def build_contact():
     </ul>
     <iframe class="enroll__map" src="{C.MAP_EMBED}" title="Map to Altus Clinical Research" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
     <div class="enroll__form">
-      <form id="inquiry" novalidate data-endpoint="{esc(C.FORM_FLOW_URL)}">
+      <form id="inquiry" novalidate data-endpoint="{esc(C.FORM_FLOW_URL)}" data-to="{esc(C.INQUIRY_EMAIL)}">
         <div class="enroll__pair">
           <input name="first" placeholder="First name" aria-label="First name" autocomplete="given-name" required>
           <input name="last" placeholder="Last name" aria-label="Last name" autocomplete="family-name" required>
@@ -513,9 +513,14 @@ def build_contact():
         <button class="enroll__btn" type="submit">Enroll today</button>
         <p class="enroll__note">We'll never share your information. By submitting, you agree to be contacted about studies.</p>
       </form>
-      <div class="enroll__done" hidden tabindex="-1">
+      <div class="enroll__done" data-done="sent" hidden tabindex="-1">
         <h2 class="h3">Thank you, we got your information.</h2>
         <p>A study coordinator will reach out to you soon. Questions in the meantime? Call {phone_link}.</p>
+      </div>
+      <div class="enroll__done" data-done="mail" hidden tabindex="-1">
+        <h2 class="h3">Almost done: press Send in your email app.</h2>
+        <p>Your email app should have opened with your details filled in. Press Send and a coordinator will reach out.
+        If nothing opened, please call {phone_link}.</p>
       </div>
     </div>
   </div>
