@@ -678,7 +678,8 @@ def thumb(img):
 
 def nice_date(d):
     y, m, dd = map(int, d.split("-"))
-    return date(y, m, dd).strftime("%B %-d, %Y")
+    d = date(y, m, dd)
+    return f"{d:%B} {d.day}, {d.year}"   # not %-d: Windows strftime rejects it
 
 
 def build_articles():
