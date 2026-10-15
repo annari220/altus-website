@@ -346,22 +346,11 @@ def build_studies():
 
 
 def build_volunteers():
-    benefits = [("Free pre-screening", "A coordinator reviews your eligibility at no cost and with no obligation to continue."),
-                ("Learn about investigational studies",
-                 "A coordinator explains the study medication, the visits and the possible risks before you decide."),
-                ("Care close to home", "Compassionate, attentive care from a team that treats your time and safety as the priority.")]
     body = hero("Volunteers", "Your participation moves medicine forward",
                 "Volunteers play a critical role in advancing treatment for many conditions. We guide you through every "
                 "step in plain language, with compassionate care close to home.", trail=[("Volunteers", None)],
-                extra='<div class="btn-row"><a class="btn" href="{{ROOT}}current-studies/">Browse studies</a>'
-                      '<a class="btn btn--light" href="{{ROOT}}contact-us/">Enroll today</a></div>')
-    body += ('<section class="section"><div class="wrap" style="max-width:1100px">'
-             '<span class="eyebrow">Why volunteer with Altus</span><h2 class="h2" style="margin-bottom:26px">What to expect from us</h2>'
-             '<ul class="benefits">' + "".join(f"<li><strong>{esc(t)}</strong><span>{esc(d)}</span></li>" for t, d in benefits)
-             + '</ul></div></section>')
-    body += ('<section class="section section--alt"><div class="wrap" style="max-width:1100px">'
-             '<span class="eyebrow">How it works</span><h2 class="h2">Joining a study is simple</h2>'
-             f'<div style="max-width:720px">{steps_list()}</div></div></section>')
+                extra='<div class="btn-row"><a class="btn" href="{{ROOT}}contact-us/">Enroll today</a>'
+                      '<a class="btn btn--light" href="{{ROOT}}current-studies/">Browse studies</a></div>')
     body += f"""<section class="section"><div class="wrap wrap--narrow prose">
   <span class="eyebrow">What it means to volunteer</span>
   <h2 style="margin-top:12px">Informed consent and your rights</h2>

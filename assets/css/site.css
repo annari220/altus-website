@@ -324,12 +324,6 @@ a[data-hv="ghost"]:hover{border-color:#fff !important;background:rgba(255,255,25
 .home-audience{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,380px),1fr));gap:20px}
 .home-audience__card{background:#fff;border:1px solid #dde8ea;border-radius:4px;padding:32px}
 
-/* Volunteers: plain benefit list */
-.benefits{list-style:disc;padding-left:1.25em;max-width:720px;display:flex;flex-direction:column;gap:22px}
-.benefits li::marker{color:#14796b}
-.benefits strong{display:block;font-family:'Times New Roman',Times,serif;font-size:20px;color:#15294d}
-.benefits span{display:block;font-size:16px;line-height:1.6;color:#42544f;margin-top:4px}
-
 /* Studies: past studies grouped by area */
 .past-groups{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,340px),1fr));gap:20px;align-items:start}
 .past-group{background:#fff;border:1px solid #dde8ea;border-radius:4px;padding:24px 26px}
