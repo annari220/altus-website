@@ -3,12 +3,12 @@
    coordinators from Altus's Microsoft 365. Sent as plain form data so the browser
    needs no CORS pre-check; the flow's Response action must return
    Access-Control-Allow-Origin for the page to see that it worked.
-   With no flow URL, it opens the visitor's own email app addressed to data-to. */
+   With no flow URL, or if the flow fails (trial ended, Microsoft down), it opens
+   the visitor's own email app addressed to data-to, so no inquiry is lost. */
 (function () {
   var form = document.getElementById('inquiry');
   if (!form) return;
   var errFields = form.querySelector('[data-err="fields"]');
-  var errSend = form.querySelector('[data-err="send"]');
   var btn = form.querySelector('button[type="submit"]');
 
   function isBad(el) {
@@ -53,7 +53,6 @@
 
   form.addEventListener('submit', function (e) {
     e.preventDefault();
-    errSend.hidden = true;
     var ok = true;
     Array.prototype.forEach.call(form.querySelectorAll('[required]'), function (el) {
       var bad = isBad(el);
@@ -75,10 +74,10 @@
     btn.disabled = true;
     form.setAttribute('aria-busy', 'true');
     var ctrl = window.AbortController ? new AbortController() : null;
-    var timer = ctrl && setTimeout(function () { ctrl.abort(); }, 20000);
+    var timer = ctrl && setTimeout(function () { ctrl.abort(); }, 15000);
     fetch(endpoint, { method: 'POST', body: data, signal: ctrl && ctrl.signal })
       .then(function (r) { if (!r.ok) throw new Error('HTTP ' + r.status); finish('sent'); })
-      .catch(function () { errSend.hidden = false; })
+      .catch(function () { openMail(f); })
       .then(function () {
         clearTimeout(timer);
         btn.disabled = false;

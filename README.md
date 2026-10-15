@@ -30,6 +30,7 @@ The form on `/contact-us/` (layout from the Claude Design "Altus - Bold" Contact
 inquiry to a Power Automate flow, which emails the coordinators from Altus's Microsoft 365.
 Its URL lives in `FORM_FLOW_URL` in `tools/content.py`. While that is empty the form opens the
 visitor's own email app with their details addressed to `INQUIRY_EMAIL`, and they press Send there.
+The same happens if the flow ever fails (for example the Premium trial ends), so no inquiry is lost.
 
 Setting up the flow (once, signed in with an Altus Microsoft 365 account; the web trigger is a
 Power Automate **Premium** feature, so that account needs a Premium license or trial):

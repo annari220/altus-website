@@ -29,7 +29,7 @@ FACEBOOK_REVIEWS = "https://www.facebook.com/AltusResearch/reviews"
 # inquiries stay inside Microsoft's HIPAA agreement. Paste the trigger's HTTP URL here;
 # setup steps are in README.md under "Volunteer form". While empty, the form opens the
 # visitor's own email app with their details addressed to INQUIRY_EMAIL instead.
-FORM_FLOW_URL = ""
+FORM_FLOW_URL = "https://default9ebd92fb8dd049559f95b278d737bf.17.environment.api.powerplatform.com:443/powerautomate/automations/direct/cu/22/workflows/351d6cb39df74f6fa32ece583451baeb/triggers/manual/paths/invoke?api-version=1&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=7rRcKWN7v6THrSkEW-NoyDbx4RA7BsJZhMPEpgqyYPI"
 INQUIRY_EMAIL = "yperez@altusresearch.com"
 
 # ---------------------------------------------------------------- icons

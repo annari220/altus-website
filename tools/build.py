@@ -509,7 +509,6 @@ def build_contact():
         <textarea name="message" rows="3" placeholder="Message (optional)" aria-label="Message (optional)"></textarea>
         <div class="enroll__hp" aria-hidden="true"><label>Leave this empty <input name="website" tabindex="-1" autocomplete="off"></label></div>
         <p class="enroll__err" data-err="fields" role="alert" hidden>Please fill in your name, phone, email and area of interest.</p>
-        <p class="enroll__err" data-err="send" role="alert" hidden>We couldn't send your information. Please try again, or call us at {phone_link}.</p>
         <button class="enroll__btn" type="submit">Enroll today</button>
         <p class="enroll__note">We'll never share your information. By submitting, you agree to be contacted about studies.</p>
       </form>
