@@ -223,7 +223,7 @@ def build_home():
                     "addressRegion": "FL", "postalCode": "33461", "addressCountry": "US"},
         "geo": {"@type": "GeoCoordinates", "latitude": 26.607926, "longitude": -80.0902012},
         "medicalSpecialty": ["Gynecologic", "Urologic", "Dermatology"],
-        "sameAs": ["https://www.facebook.com/AltusResearch/", "https://www.instagram.com/altusresearch/",
+        "sameAs": ["https://www.facebook.com/AltusResearch/", "https://www.instagram.com/altusclinicalresearch/",
                    "https://twitter.com/altusresearch"],
     }
     extra = ('<link rel="preload" as="image" href="{{ROOT}}assets/img/hero-volunteers.webp" type="image/webp" '
