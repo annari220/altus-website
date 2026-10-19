@@ -172,11 +172,12 @@ INVESTIGATOR = ("Dr. Samuel N. Lederman, MD, FACOG", "Medical Director & Lead In
 # Shown under the investigator on /meet-our-team/
 PA = ("Cindy Mora, PA-C", "Sub-Investigator", "assets/img/cindy-mora-hd.jpg")
 STAFF = [
-    ("Jessica Ravelo", "Director of Operations", "assets/img/team/jessica-ravelo.jpg"),
-    ("Yanelys Perez", "Assistant Site Director", "assets/img/team/yanelys-perez.jpg"),
+    ("Jessica Ravelo", "CEO/President", "assets/img/team/jessica-ravelo.jpg"),
+    ("Yanelys Perez", "Site Director", "assets/img/team/yanelys-perez.jpg"),
     ("Teresa Carmona", "Office Manager", "assets/img/team/teresa-carmona.jpg"),
     ("Axel Hernandez", "Regulatory Manager", "assets/img/team/axel-hernandez.jpg"),
     ("Florinda Francisco", "Lead Research Coordinator", "assets/img/team/florinda-francisco.jpg"),
+    ("Elizabeth Rosales", "Recruitment Specialist", "assets/img/team/elizabeth-rosales.jpg"),
     ("Stephanie Feliz", "Research Pharmacist and CRC", "assets/img/team/stephanie-feliz.jpg"),
     ("Linda Portales", "Research Coordinator", "assets/img/team/linda-portales.jpg"),
     ("Elena Miguel-Thomas", "Research Assistant", "assets/img/team/elena-miguel-thomas.jpg"),
