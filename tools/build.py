@@ -8,6 +8,7 @@ results keep working. {{ROOT}} becomes the relative path back to the site
 root, so the build works on altusresearch.com and on a GitHub Pages preview
 URL (https://<user>.github.io/altus-website/).
 """
+import hashlib
 import html
 import json
 import re
@@ -18,6 +19,7 @@ from pathlib import Path
 import content as C
 
 ROOT_DIR = Path(__file__).resolve().parent.parent
+CSS_VERSION = hashlib.sha1((ROOT_DIR / "assets/css/site.css").read_bytes()).hexdigest()[:8]  # cache-busts site.css
 SITE = "https://altusresearch.com"
 PAGES = []          # (path, html)
 SITEMAP = []        # paths
@@ -46,7 +48,7 @@ HEAD = """<!DOCTYPE html>
 <link rel="icon" href="{{{{ROOT}}}}favicon.ico" sizes="any">
 <link rel="icon" type="image/png" sizes="32x32" href="{{{{ROOT}}}}assets/img/favicon-32.png">
 <link rel="apple-touch-icon" href="{{{{ROOT}}}}assets/img/favicon-180.png">
-<link rel="stylesheet" href="{{{{ROOT}}}}assets/css/site.css">
+<link rel="stylesheet" href="{{{{ROOT}}}}assets/css/site.css?v={css_version}">
 {extra}</head>
 <body>
 <a class="skip-link" href="#main">Skip to content</a>
@@ -90,7 +92,7 @@ def page(path, title, desc, body, extra="", og_type="website", og_image=None, si
     img = SITE + "/" + (og_image or "assets/img/hero-volunteers.jpg")
     header = (ROOT_DIR / "tools/partials/header.html").read_text(encoding="utf-8")
     footer = (ROOT_DIR / "tools/partials/footer.html").read_text(encoding="utf-8")
-    out = (HEAD.format(base="", title=esc(title), desc=esc(desc), canonical=canonical, og_type=og_type,
+    out = (HEAD.format(base="", css_version=CSS_VERSION, title=esc(title), desc=esc(desc), canonical=canonical, og_type=og_type,
                        og_image=img, extra=extra)
            + header + '\n<main id="main">\n' + body + "\n</main>\n" + footer + "\n" + FOOT)
     out = fix_links(out).replace("{{ROOT}}", root)
@@ -427,7 +429,8 @@ def build_team():
   {person(*C.INVESTIGATOR, lead=True)}
   <div style="margin-top:22px">{person(*C.PA, lead=True, eyebrow="Investigator")}</div>
   <h2 class="h2" style="margin:56px 0 24px">Our staff</h2>
-  <div class="team-grid">{''.join(person(*p) for p in C.STAFF)}</div>
+  <div class="team-grid team-grid--leaders">{''.join(person(*p) for p in C.LEADERS)}</div>
+  <div class="team-grid team-grid--staff">{''.join(person(*p) for p in C.STAFF)}</div>
 </div></section>"""
     body += cta("Get started", "Ready to take the next step?",
                 "Tell us a little about yourself and our team will reach out about current and upcoming studies.")
@@ -741,7 +744,7 @@ def build_404():
 </ul></div></section>"""
     header = (ROOT_DIR / "tools/partials/header.html").read_text(encoding="utf-8")
     footer = (ROOT_DIR / "tools/partials/footer.html").read_text(encoding="utf-8")
-    out = (HEAD.format(base=script, title="Page not found | Altus Clinical Research", desc="Page not found.",
+    out = (HEAD.format(base=script, css_version=CSS_VERSION, title="Page not found | Altus Clinical Research", desc="Page not found.",
                        canonical=SITE + "/404.html", og_type="website", og_image=SITE + "/assets/img/hero-volunteers.jpg",
                        extra='<meta name="robots" content="noindex">\n')
            + header + '\n<main id="main">\n' + body + "\n</main>\n" + footer + "\n" + FOOT)

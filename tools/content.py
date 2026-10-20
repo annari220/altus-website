@@ -30,7 +30,7 @@ FACEBOOK_REVIEWS = "https://www.facebook.com/AltusResearch/reviews"
 # setup steps are in README.md under "Volunteer form". While empty, the form opens the
 # visitor's own email app with their details addressed to INQUIRY_EMAIL instead.
 FORM_FLOW_URL = "https://default9ebd92fb8dd049559f95b278d737bf.17.environment.api.powerplatform.com:443/powerautomate/automations/direct/cu/22/workflows/351d6cb39df74f6fa32ece583451baeb/triggers/manual/paths/invoke?api-version=1&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=7rRcKWN7v6THrSkEW-NoyDbx4RA7BsJZhMPEpgqyYPI"
-INQUIRY_EMAIL = "yperez@altusresearch.com"
+INQUIRY_EMAIL = "info@altusresearch.com"
 
 # ---------------------------------------------------------------- icons
 ICON = {
@@ -171,17 +171,21 @@ INVESTIGATOR = ("Dr. Samuel N. Lederman, MD, FACOG", "Medical Director & Lead In
                 "assets/img/dr-lederman-team.jpg")
 # Shown under the investigator on /meet-our-team/
 PA = ("Cindy Mora, PA-C", "Sub-Investigator", "assets/img/cindy-mora-hd.jpg")
-STAFF = [
+# Leadership row, centered on its own under the investigators on /meet-our-team/
+LEADERS = [
     ("Jessica Ravelo", "CEO/President", "assets/img/team/jessica-ravelo.jpg"),
     ("Yanelys Perez", "Site Director", "assets/img/team/yanelys-perez.jpg"),
     ("Teresa Carmona", "Office Manager", "assets/img/team/teresa-carmona.jpg"),
+]
+# Everyone else, in display order (a short last row is centered)
+STAFF = [
     ("Axel Hernandez", "Regulatory Manager", "assets/img/team/axel-hernandez.jpg"),
     ("Florinda Francisco", "Lead Research Coordinator", "assets/img/team/florinda-francisco.jpg"),
-    ("Elizabeth Rosales", "Recruitment Specialist", "assets/img/team/elizabeth-rosales.jpg"),
     ("Stephanie Feliz", "Research Pharmacist and CRC", "assets/img/team/stephanie-feliz.jpg"),
     ("Linda Portales", "Research Coordinator", "assets/img/team/linda-portales.jpg"),
     ("Elena Miguel-Thomas", "Research Assistant", "assets/img/team/elena-miguel-thomas.jpg"),
     ("Jessica Francisco", "Research Assistant", "assets/img/team/jessica-francisco.jpg"),
+    ("Elizabeth Rosales", "Recruitment Specialist", "assets/img/team/elizabeth-rosales.jpg"),
     ("Matthew DeBoer", "EDC/Regulatory Assistant", "assets/img/team/matthew-deboer.jpg"),
     ("Ernesto Mateo", "EDC/Regulatory Assistant", None),
 ]

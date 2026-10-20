@@ -40,7 +40,7 @@ Power Automate **Premium** feature, so that account needs a Premium license or t
 2. In the trigger set **Who can trigger the flow?** to **Anyone**. Leave the JSON schema empty:
    the site sends plain form data, not JSON.
 3. Add **Send an email (V2)** (Office 365 Outlook).
-   - **To:** `yperez@altusresearch.com` and anyone else who should get inquiries
+   - **To:** `info@altusresearch.com` and anyone else who should get inquiries
    - **Subject:** `Volunteer inquiry: @{triggerFormDataValue('area')} - @{triggerFormDataValue('first')} @{triggerFormDataValue('last')}`
    - **Body:** one line per field: `first`, `last`, `phone`, `email`, `area`, `message`, `language`,
      each as `@{triggerFormDataValue('phone')}` and so on. If pasting `@{...}` doesn't turn into a
