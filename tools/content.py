@@ -187,7 +187,6 @@ STAFF = [
     ("Jessica Francisco", "Research Assistant", "assets/img/team/jessica-francisco.jpg"),
     ("Elizabeth Rosales", "Recruitment Specialist", "assets/img/team/elizabeth-rosales.jpg"),
     ("Matthew DeBoer", "EDC/Regulatory Assistant", "assets/img/team/matthew-deboer.jpg"),
-    ("Ernesto Mateo", "EDC/Regulatory Assistant", None),
 ]
 
 # ---------------------------------------------------------------- sponsors (design copy)
